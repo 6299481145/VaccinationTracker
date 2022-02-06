@@ -1,2 +1,2 @@
 # VaccinationTracker
-This repository is for vaccinationTracker project (My BCA final year project)
+This repository is for vaccinationTracker project (My BCA final year project).
