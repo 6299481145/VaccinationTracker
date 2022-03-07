@@ -12,12 +12,10 @@
 <body>
 
 <header>
-        <?php
-           include('Includes/Header.html');
-        ?>
+        <?php include('Includes/Header.html'); ?>
 </header>
 <div class="header">
-         <h2>Home</h2>
+         <h2>Edit Child</h2>
 </div>
 
 
