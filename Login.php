@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VAT 1.0</title>
     <link rel="stylesheet" href="design.css">
-
+    <link rel="shortcut icon" href="Image/vac.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 <body>
 
@@ -18,7 +20,8 @@
             </div>
             <div class="form">
                 <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" id=""required>
+                <input type="password" placeholder="Enter Password" name="password" id="password"required onclick="visibility()">
+                
             </div>
             <div class="form">
                 <label for="user"><b>User</b></label>
@@ -31,7 +34,7 @@
             
             <button >Login</button>
            
-            <button type="reset">Reset</button>
+            
 
            
         </form>

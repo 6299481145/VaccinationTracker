@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="design.css">
-    <title>New Child</title>
+    <link rel="shortcut icon" href="Image/vac.png" type="image/x-icon">
+    <title>VAT 1.0</title>
 </head>
 
 
@@ -15,7 +16,7 @@
         <?php include('Includes/Header.html'); ?>
 </header>
 <div class="header">
-         <h2>New Child</h2>
+         <h2>Child Registration</h2>
 </div>
 
 
