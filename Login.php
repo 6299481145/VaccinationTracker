@@ -11,12 +11,18 @@
     
 </head>
 <body>
+<style >
+input[type=text], input[type=password] {
+margin-left:500px;
+width: 30%;
+}
+</style>
 
         <form class="form" action="LoginScript.php" method="POST">
             <div class="form">
             <h1>Vaccination Tracker</h1>
                 <label for="user_id"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="user_id" id=""required>
+                <input type="text" placeholder="Enter Username" name="user_id" id=""required >
             </div>
             <div class="form">
                 <label for="password"><b>Password</b></label>

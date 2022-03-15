@@ -7,6 +7,7 @@
     text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
     font-size: 15px;
     line-height: 20px;
+    margin-bottom: 40px;
   }
   /* ---------------------------------- Navigation bar controls ------------------------------- */
 .navbar{
@@ -78,17 +79,19 @@
 }
 button{
   color: white;
- 
   padding: 10px;
   margin: 10px;
-  background-color: blue;
-  margin-left:500px;
- 
+  background-color: rgb(19, 19, 241);
+  border-radius: 5px;
+  font-size: 20px;
+}
+button:hover{
+  background-color:lightslategray;
 }
 
 /* ---------------------------------- Form and Form Controls ------------------------------- */
 .form {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 5px;
 }
 
@@ -100,49 +103,75 @@ h1{
   margin-left:500px;
   margin-right: 770px;
   height: 60px;
-  padding: 5px;
+  padding: 10px;
   text-align: center;
   background-color: rgb(120, 120, 134);
   color:white;
   text-shadow: 1px 1px 2px black, 0 0 20px blue, 0 0 5px darkblue;
 }
+hr{
+  border: 1px solid grey;
+  margin-bottom: 0px;
+}
 .form label {
   width: 150px;
-  display: inline-block;
   margin-top:0px;
   margin-left:500px;
 }
-
 .form button {
   width: 30%;
   height: 50px;
-  padding: 6px;
+  padding: 10px;
+  margin-left: 500px;
   font-size: 20px;
-
-  
+  border-radius: 5px;
 }
-/* ---------------------------------- Controls for Login page------------------------------- */
-input[type=text], input[type=password] {
-  display:block;
-  width: 30%;
-  color: blue;
+#gender,#district,#state{
+  width: 70%;
+  height: 40px;
   padding: 6px 15px;
-  margin: 8px 0;
-  margin-left:500px;
-  border: 1px solid #ccc;
+  margin: 8px 0px;
+  margin-top: 0px;
+  border-radius: 3px;
+  font-size: 15px;
+  border: 2px solid grey;
+  background-color: white;
+}
+
+/* ---------------------------------- Controls for Login page------------------------------- */
+input[type=text], input[type=password],input[type=date]{
+  display:block;
+  width: 70%;
+  height: 40px;
+  color: black;
+  padding: 10px 15px;
+  margin: 1px 0;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  font-size: 15px;
+  border: 2px solid grey;
   box-sizing: border-box;
+
+}
+input[type=text],input[type=password],input[type=date]:hover{
+color:black;
 }
 #user
 {
   display: block;
   width: 30%;
+  height: 40px;
   padding: 6px 15px;
   margin: 8px 0px;
+  margin-top: 0px;
   margin-left:500px;
+  background-color: white;
   box-sizing: border-box;  
+  border-radius: 3px;
+  border: 2px solid grey;
+  font-size: 15px;
 }
-
-
 /* ---------------------------------- Controls for Child List page------------------------------- */
 #child{
   font-family: Arial, Helvetica, sans-serif;
@@ -155,9 +184,6 @@ input[type=text], input[type=password] {
   border: 2px solid #ddd;
  
 }
-
-
-
 #child tr:hover {background-color: #ddd;}
 
 #child th {
@@ -177,21 +203,37 @@ input[type=text], input[type=password] {
   float: left;
   width: 25%;
   margin-top: 50px;
-  
-  padding: 10px;
+  padding: 5px;
 }
 .row 
 {
   margin: 0 -5px;
+  
 }
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
+  box-shadow: 0 4px 8px 0 rgba(8, 8, 8, 0.2);
+  padding: 10px;
   border-radius: 5px;
   height: 200px;
   width: 450px;
+  
   text-align: center;
-  background-color: #f1f1f1;
+  background-color: #beb8b8;
+}
+/* ---------------------------------- Controls for Child Registration form------------------------------ */
+* {
+  box-sizing: border-box;
+}
+.main-column {
+  margin-top: 15px ;
+  float: left;
+  width: 30%;
+  padding: 10px;
+}
+.main-row:after{
+  content: "";
+  display: table;
+  clear: left;
 }
 .footer {
   text-align: center;
@@ -199,7 +241,7 @@ input[type=text], input[type=password] {
   left: 0;
   bottom: 0;
   width: 100%;
+  font-size: 20px;
   background-color:rgb(128, 128, 134);
   color:Black;
-    
 }
