@@ -13,7 +13,7 @@
 <body>
 <style >
 input[type=text], input[type=password] {
-margin-left:500px;
+margin-left:600px;
 width: 30%;
 }
 </style>

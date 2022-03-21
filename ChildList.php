@@ -24,16 +24,17 @@
         <tr>
             <th>Child Id</th>
             <th>First Name</th>
+            <th>Middle Name</th>
             <th>Last Name</th>
-            <th>Parent's Name</th>
+            <th>Parents Name</th>
             <th>Gender</th>
             <th>Date Of Birth</th>
-            <th>Age</th>
-            <th>Address</th>
-            <th>City</th>
+            <th>Village</th>
+            <th>District</th>
             <th>State</th>
+            <th>Pincode</th>
+            <th>Contact No</th>
             <th>Email</th>
-            <th>Mobile No</th>
         </tr>
     </thead>
     </table>

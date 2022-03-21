@@ -22,7 +22,7 @@
 
 <form class=Child action="EditChildScript.php">
     <label for="child_id">Child Id / Parent's Name</label>
-    <input type="text" placeholder="Search.."  name="child_id" id="child_id"><button type=""><i class="fa fa-search"></i></button>
+    <input type="text" placeholder="Search.."  name="child_id" id="child_id"><button type="search"><i class="fa fa-search"></i></button>
 <div class="main-row">
   <div class="main-column" >
    <label for="first_name">First Name</label>
@@ -46,6 +46,7 @@
   <label for="gender">Gender</label>
   <div>
   <select name="gender" id="gender">
+       <option value="">Select</option>
        <option value="male">Male</option>
        <option value="female">Female</option>
   </select>
@@ -66,6 +67,7 @@
   <label for="district">District</label>
   <div>
   <select name="district" id="district">
+    <option value="">Select</option>
        <option value="">Muzaffarpur</option>
        <option value="">Vaishali</option>
        <option value="">Sitamarhi</option>
@@ -79,6 +81,7 @@
   <label for="state">State</label>
   <div>
   <select name="state" id="state">
+       <option value="">Select</option>
        <option value="bihar">Bihar</option>
        <option value="haryana">Haryana</option>
        <option value="maharashtra">Maharashtra</option>
