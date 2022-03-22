@@ -1,0 +1,7 @@
+<?php
+//---Rename this file to Connect.php and modify the connection parameters as needed ----
+
+$con = new mysqli("localhost", 'your_username', 'your_password', 'your_database_name');
+if($con->connect_error) {
+    die($con->connect_error);
+}
