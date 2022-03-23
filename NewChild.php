@@ -18,7 +18,7 @@
 <div class="header">
          <h2>Child Registration</h2>
 </div>
-<form class=Child action="NewChildScript.php">
+<form class=Child action="NewChildScript.php" method="POST">
 <div class="main-row">
   <div class="main-column" >
   <label class="required" for="first_name">First Name</label>
@@ -64,7 +64,7 @@
   <div>
   <select name="district" id="district">
        <option value="">Select</option>
-       <option value="">Muzaffarpur</option>
+       <option value="Muzaffarpur">Muzaffarpur</option>
        <option value="">Vaishali</option>
        <option value="">Sitamarhi</option>
        <option value="">Saran</option>
