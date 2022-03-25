@@ -31,3 +31,35 @@ class Utility
     $con->close();
   }
 }
+
+function fetch_state()
+{
+  include 'Connect.php';
+  $sql = "SELECT state FROM state";
+  $result = $con->query($sql);
+  echo '<select name="state" id="state">';
+  while ($row = $result->fetch_array()) {
+    $state = $row[0];
+    echo '<option value="' . $state . '">' . $state . '</option>';
+  }
+  echo '</select>';
+  $con->close();
+}
+function fetch_existing_state($p_state)
+{
+  include 'Connect.php';
+  $sql = "SELECT state FROM state";
+  $result = $con->query($sql);
+  echo '<select name ="state" id="state">';
+  while ($row = $result->fetch_array()) {
+    $state = $row[0];
+
+    if ($state == $p_state)
+      echo  '<option value="' . $state . '" selected>' . $state . '</option>';
+    else
+      echo  '<option value="' . $state . '">' . $state . '</option>';
+  }
+  echo '</select>';
+  $con->close();
+}
+echo $p_state;

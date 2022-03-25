@@ -15,7 +15,7 @@ $email=$_POST['email'];
 
 include 'Connect.php';
 
-$sql = "UPDATE child SET first_name='$first_name', middle_name='$middle_name',last_name='$last_name', parents_name='$parents_name', gender='$gender',dob='$dob',village='$village',district='$district',state='$state', pincode='$pincode',contact_no='$contact_no',email='$email'";
+$sql = "UPDATE child SET first_name='$first_name', middle_name='$middle_name',last_name='$last_name', parents_name='$parents_name', gender='$gender',dob='$dob',village='$village',district='$district',state='$state', pincode='$pincode',contact_no='$contact_no',email='$email' WHERE child_id='$child_id'";
 if($con->query($sql)==true) {
     
    echo "Data Updated Successfully!";

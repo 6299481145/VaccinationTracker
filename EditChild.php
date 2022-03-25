@@ -2,6 +2,7 @@
 $child_id = $_POST['child_id'];
 
 include 'Connect.php';
+include 'Utility.php';
 $sql = "SELECT * FROM child WHERE child_id='$child_id'";
 $result = $con->query($sql);
 
@@ -10,7 +11,7 @@ if ($result->num_rows > 0) {
   $first_name = $row['first_name'];
   $middle_name = $row['middle_name'];
   $last_name = $row['last_name'];
-  $parents_name = $row['famo_name'];
+  $parents_name = $row['parents_name'];
   $gender = $row['gender'];
   $dob = $row['dob'];
   $village = $row['village'];
@@ -19,9 +20,9 @@ if ($result->num_rows > 0) {
   $pincode = $row['pincode'];
   $contact_no = $row['contact_no'];
   $email = $row['email'];
-  
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +46,7 @@ if ($result->num_rows > 0) {
     <h2>Edit Child</h2>
   </div>
 
-  <form class=Child action="">
+  <form class=Child action="" method="POST">
     <label for="child_id">Child Id / Parent's Name</label>
     <div>
       <input type="text" placeholder="Search.." name="child_id" id="child_id" value="<?= $child_id ?>"><button><i class="fa fa-search"></i></button>
@@ -69,16 +70,16 @@ if ($result->num_rows > 0) {
     </div>
     <div class="main-row">
       <div class="main-column">
-        <label for="famo_name">Parant's Name</label>
+        <label for="famo_name">Parents Name</label>
         <input type="text" name="famo_name" id="famo_name" value="<?= $parents_name ?>">
       </div>
       <div class="main-column">
         <label for="gender">Gender</label>
         <div>
-          <select name="gender" id="gender" value="<?= $gender ?>">
+          <select name="gender" id="gender">
             <option value="">Select</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
+            <option value="Male" <?php if ($gender == 'Male') echo 'Selected'; ?>>Male</option>
+            <option value="Female" <?php if ($gender == 'Female') echo 'Selected'; ?>>Female</option>
           </select>
         </div>
       </div>
@@ -96,9 +97,9 @@ if ($result->num_rows > 0) {
       <div class="main-column">
         <label for="district">District</label>
         <div>
-          <select name="district" id="district" value="<?= $district ?>">
+          <select name="district" id="district">
             <option value="">Select</option>
-            <option value="Muzaffarpur">Muzaffarpur</option>
+            <option value="Muzaffarpur" <?php if ($district == 'Muzaffarpur') echo 'Selected'; ?>>Muzaffarpur</option>
             <option value="Vaishali">Vaishali</option>
             <option value="Sitamarhi">Sitamarhi</option>
             <option value="Saran">Saran</option>
@@ -110,14 +111,7 @@ if ($result->num_rows > 0) {
       <div class="main-column">
         <label for="state">State</label>
         <div>
-          <select name="state" id="state" value="<?= $state ?>">
-            <option value="">Select</option>
-            <option value="Bihar">Bihar</option>
-            <option value="Haryana">Haryana</option>
-            <option value="Maharashtra">Maharashtra</option>
-            <option value="Uttar Pradesh">Uttar Pradesh</option>
-            <option value="Panjab">Panjab</option>
-          </select>
+        <?php fetch_existing_state($state); ?>
         </div>
       </div>
     </div>
