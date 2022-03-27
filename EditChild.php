@@ -111,7 +111,7 @@ if ($result->num_rows > 0) {
       <div class="main-column">
         <label for="state">State</label>
         <div>
-        <?php fetch_existing_state($state); ?>
+          <?php fetch_existing_state($state); ?>
         </div>
       </div>
     </div>
@@ -132,7 +132,8 @@ if ($result->num_rows > 0) {
     </div>
     <hr>
     <button type="submit">Submit</button>
-
+  </form>
+  <form class="Child" action="DeleteChildScript.php" method="POST">
     <button>Delete</button>
 
     <footer class="footer">
