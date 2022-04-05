@@ -21,6 +21,13 @@ if ($result->num_rows > 0) {
   $contact_no = $row['contact_no'];
   $email = $row['email'];
 }
+
+if (isset($_POST['submit'])) {
+  require "Utility.php";
+  $header = "Verifying Session!";
+  $body = "Data Update Successfully!";
+  message::show_modal($header, $body);
+}
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +89,7 @@ if ($result->num_rows > 0) {
             <option value="Female" <?php if ($gender == 'Female') echo 'Selected'; ?>>Female</option>
           </select>
         </div>
-      </div>
+      </div> `
       <div class="main-column">
         <label for="dob">Date of Birth</label>
         <input type="date" name="dob" id="dob" value="<?= $dob ?>">
@@ -131,15 +138,13 @@ if ($result->num_rows > 0) {
       </div>
     </div>
     <hr>
-    <button type="submit">Submit</button>
+    <button type="submit" name="submit">Submit</button>
+    <button name="delete">Delete</button>
   </form>
-  <form class="Child" action="DeleteChildScript.php" method="POST">
-    <button>Delete</button>
+  <footer class="footer">
+    <?php include('Includes/Footer.html'); ?>
+  </footer>
 
-    <footer class="footer">
-      <?php include('Includes/Footer.html'); ?>
-    </footer>
-  </form>
 </body>
 
 </html>

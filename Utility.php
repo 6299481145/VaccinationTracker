@@ -32,6 +32,34 @@ class Utility
   }
 }
 
+class ID{
+  public static function generatestaff_id()
+  {
+    include 'Connect.php';
+    $sql = "SELECT staff_id from staff ORDER BY staff_id DESC LIMIT 1";
+    $result = $con->query($sql);
+    $staff_id = null;
+    if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $staff_id = $row['staff_id'];
+      $staff_id = substr($staff_id, 2);
+      $staff_id = $staff_id + 1;
+      if ($staff_id < 10)
+        $staff_id = "ST00$staff_id";
+      elseif ($staff_id < 100)
+        $staff_id = "ST0$staff_id";
+      elseif ($staff_id < 1000)
+        $staff_id =  "ST$staff_id";
+    } else {
+      $staff_id = 'ST001';
+    }
+
+    return $staff_id;
+    $con->close();
+  }
+}
+
+
 function fetch_state()
 {
   include 'Connect.php';
@@ -63,3 +91,30 @@ function fetch_existing_state($p_state)
   $con->close();
 }
 echo $p_state;
+
+class message
+{
+  public static function show_modal($header, $body)
+  {
+    echo '<div class="modal" id="modal">
+        <div class="modal-header">
+            <span>' . $header . '</span>
+        </div>
+        <div class="modal-body">
+            <span>' . $body . '</span>
+        </div>
+        <div class="modal-footer">
+            <button type="button" onclick="hideModal()">OK</button>
+        </div>
+    </div>
+    <script>
+        const modal = document.getElementById("modal")
+        function showModal() {
+            modal.style.display = "block";
+        }
+        function hideModal() {
+            modal.style.display = "none";
+        }
+    </script>';
+  }
+}

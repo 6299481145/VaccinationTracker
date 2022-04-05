@@ -1,36 +1,36 @@
-.header{
-    text-align: center;
-    width: 100%;
-    padding: 10px;
-    background-color: rgb(120, 120, 134);
-    color:white;
-    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-    font-size: 15px;
-    line-height: 20px;
-    margin-bottom: 40px;
-  }
-  /* ---------------------------------- Navigation bar controls ------------------------------- */
-.navbar{
-  margin:0;
+.header {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(120, 120, 134);
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 40px;
+}
+/* ---------------------------------- Navigation bar controls ------------------------------- */
+.navbar {
+  margin: 0;
   padding: 0 10;
-  overflow:hidden;
+  overflow: hidden;
   width: 100%;
   line-height: 25px;
   font-size: 20px;
-  background-color: rgba(172, 168, 168, 0.952);;
+  background-color: rgba(172, 168, 168, 0.952);
 }
 
-.navbar a{
+.navbar a {
   float: left;
- 
-  color:rgb(10, 12, 146);
+
+  color: rgb(10, 12, 146);
   text-align: center;
   padding: 15px;
   text-decoration: none;
-  
 }
-.navbar a:hover, .dropdown:hover .dropbtn {
-    background-color:lightgrey;
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  background-color: lightgrey;
 }
 .dropdown {
   float: left;
@@ -38,7 +38,7 @@
 }
 
 .dropdown .dropbtn {
-  font-size: 16px;  
+  font-size: 16px;
   border: none;
   outline: none;
   color: rgb(28, 28, 148);
@@ -51,7 +51,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color:#f9f9f9;
+  background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgb(28, 28, 148);
   z-index: 1;
@@ -77,7 +77,7 @@
   display: block;
   padding-top: 10px;
 }
-button{
+button {
   color: white;
   padding: 10px;
   margin: 10px;
@@ -85,8 +85,8 @@ button{
   border-radius: 5px;
   font-size: 20px;
 }
-button:hover{
-  background-color:lightslategray;
+button:hover {
+  background-color: lightslategray;
 }
 
 /* ---------------------------------- Form and Form Controls ------------------------------- */
@@ -98,26 +98,26 @@ button:hover{
 .form input {
   padding: 5px;
 }
-h1{
-  margin-top:100px;
-  margin-left:600px;
+h1 {
+  margin-top: 100px;
+  margin-left: 600px;
   margin-right: 670px;
   height: 60px;
   padding: 10px;
   text-align: center;
   border-radius: 3px;
   background-color: rgb(120, 120, 134);
-  color:white;
+  color: white;
   text-shadow: 1px 1px 2px black, 0 0 20px blue, 0 0 5px darkblue;
 }
-hr{
+hr {
   border: 1px solid grey;
   margin-bottom: 0px;
 }
 .form label {
   width: 150px;
-  margin-top:0px;
-  margin-left:600px;
+  margin-top: 0px;
+  margin-left: 600px;
 }
 .form button {
   width: 30%;
@@ -127,17 +127,21 @@ hr{
   font-size: 20px;
   border-radius: 5px;
 }
-.required:after{
+.required:after {
   content: "*";
   color: red;
 }
-#child_id,#staff_id{
+#child_id,
+#staff_id {
   width: 60%;
-  height:  45px;
-  display:inline-block;
+  height: 45px;
+  display: inline-block;
 }
 
-#gender,#district,#state,#time{
+#gender,
+#district,
+#state,
+#time {
   width: 70%;
   height: 40px;
   padding: 6px 15px;
@@ -150,8 +154,11 @@ hr{
 }
 
 /* ---------------------------------- Controls for Login page------------------------------- */
-input[type=text], input[type=password],input[type=date],input[type=time]{
-  display:block;
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="time"] {
+  display: block;
   width: 70%;
   height: 40px;
   color: black;
@@ -163,42 +170,43 @@ input[type=text], input[type=password],input[type=date],input[type=time]{
   font-size: 15px;
   border: 2px solid grey;
   box-sizing: border-box;
-
 }
-input[type=text],input[type=password],input[type=date]:hover{
-color:black;
+input[type="text"],
+input[type="password"],
+input[type="date"]:hover {
+  color: black;
 }
-#user
-{
+#user {
   display: block;
   width: 30%;
   height: 40px;
   padding: 6px 15px;
   margin: 8px 0px;
   margin-top: 0px;
-  margin-left:600px;
+  margin-left: 600px;
   background-color: white;
-  box-sizing: border-box;  
+  box-sizing: border-box;
   border-radius: 3px;
   border: 2px solid grey;
   font-size: 15px;
 }
 /* ---------------------------------- Controls for Child List page------------------------------- */
-#child{
+#child {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   margin-top: 50px;
   width: 100%;
 }
 
-#child td, #child th {
+#child td,
+#child th {
   border: 2px solid #ddd;
- 
 }
-#child tr:hover {background-color: #ddd;}
+#child tr:hover {
+  background-color: #ddd;
+}
 
 #child th {
- 
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
@@ -216,10 +224,8 @@ color:black;
   margin-top: 50px;
   padding: 5px;
 }
-.row 
-{
+.row {
   margin: 0 -5px;
-  
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(8, 8, 8, 0.2);
@@ -227,7 +233,7 @@ color:black;
   border-radius: 5px;
   height: 200px;
   width: 450px;
-  
+
   text-align: center;
   background-color: #beb8b8;
 }
@@ -236,15 +242,44 @@ color:black;
   box-sizing: border-box;
 }
 .main-column {
-  margin-top: 15px ;
+  margin-top: 15px;
   float: left;
   width: 30%;
   padding: 10px;
 }
-.main-row:after{
+.main-row:after {
   content: "";
   display: table;
   clear: left;
+}
+/* ---------------------------------- Controls for modal------------------------------ */
+.modal {
+  background-color: beige;
+  width: 500px;
+  margin: 200 100;
+  border: 1px solid rgb(107, 81, 48);
+  padding: 0px;
+  /* display: none; */
+  z-index: 1;
+  position: fixed;
+}
+
+.modal-header {
+  background-color: gray;
+  color: white;
+  padding: 1px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.modal-body {
+  padding: 10px;
+}
+
+.modal-footer {
+  text-align: right;
+  background-color: gray;
+  padding: 5px 10px;
 }
 .footer {
   text-align: center;
@@ -253,6 +288,6 @@ color:black;
   bottom: 0;
   width: 100%;
   font-size: 20px;
-  background-color:rgb(128, 128, 134);
-  color:Black;
+  background-color: rgb(128, 128, 134);
+  color: Black;
 }
