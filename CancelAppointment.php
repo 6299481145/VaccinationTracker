@@ -14,7 +14,7 @@
 <body>
 
   <header>
-    <?php include('Includes/Header.html'); ?>
+    <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
     <h2>Cancel Appointment</h2>

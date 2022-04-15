@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
 <body>
 
   <header>
-    <?php include('Includes/Header.html'); ?>
+    <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
     <h2>Edit Staff</h2>
