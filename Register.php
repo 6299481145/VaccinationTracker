@@ -14,9 +14,7 @@
 
 <body>
     <header>
-        <?php include('Includes/Head.html');
-        //include('Layout/header.php');
-        ?>
+        <?php include('Includes/Head.html'); ?>
     </header>
     <style>
         input[type=text],
@@ -27,32 +25,39 @@
     </style>
 
 
-    <form class="form" action="LoginScript.php" method="POST">
-
+    <form class="form" action="RegistrationScript.php" method="POST">
         <div class="form">
-            <label for="username"><b>Username / Email Id</b></label>
-            <input type="text" placeholder="Enter Username or Email" name="username" id="" required>
+            <label for="username"><b>Username </b></label>
+            <input type="text" placeholder="First & Last name" name="username" id="" required>
+        </div>
+        <div class="form">
+            <label for="email"><b>Email Id</b></label>
+            <input type="text" placeholder="Email" name="email" id="" required>
         </div>
         <div class="form">
             <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" id="password" required onclick="visibility()">
+            <input type="password" placeholder="Your Password" name="password" id="password" required onclick="visibility()">
 
         </div>
         <div class="form">
-            <label for="type"><b>User</b></label>
+            <label for="user"><b>User</b></label>
             <select name="user" id="user">
                 <option value="">Select User Type</option>
                 <option value="parent">Parent</option>
                 <option value="staff">Staff</option>
             </select>
-        </div>
-        <button>Sign In</button>
-    </form>
-    <footer class="footer">
-        <?php
-        include('Includes/Footer.html'); ?>
-    </footer>
 
+        </div>
+
+        <button>Sign up</button>
+
+        <footer class="footer">
+            <?php
+            include('Includes/Footer.html'); ?>
+        </footer>
+
+
+    </form>
 
 </body>
 

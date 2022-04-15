@@ -1,20 +1,25 @@
 <?php
-$user_id = $_POST['user_id'];
+$username = $_POST['username'];
 $password = $_POST['password'];
+$type = $_POST['type'];
 
 include 'Connect.php';
 
-//$sql = "SELECT * FROM user WHERE user_id='$user_id' AND password='$password'";
-$sql = "SELECT * FROM user WHERE user_id = ? AND password = ?";
-//$result = $con->query($sql);
-$stmt = $con->prepare($sql); 
-$stmt->bind_param("ss", $user_id,$password);
+$sql = "SELECT * FROM registration WHERE username  = ? AND password = ? ";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("ss", $username, $password);
 $stmt->execute();
 $result = $stmt->get_result();
-if($result->num_rows>0) {
-    echo "<script>window.location.href='Home.php'</script>";
-} else {
-    echo "Login failed!";
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    session_start();
+    $_SESSION['username'] = $row['username'];
+    if ($row['type'] == "staff") {
+        header("Location:Home.php");
+    } elseif ($row['type'] == "parent") {
+        header("Location:Index.php");
+    } else
+        echo "Invalid user";
 }
 $stmt->close();
 $con->close();

@@ -1,3 +1,6 @@
+<?php
+include 'Utility.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,55 +11,50 @@
   <link rel="stylesheet" href="design.css">
   <link rel="shortcut icon" href="Image/vac.png" type="image/x-icon">
   <title>VAT 1.0</title>
-
 </head>
 
 
 <body>
 
   <header>
-    <?php include('Includes/Header.html'); ?>
+    <?php include('Includes/header.php'); ?>
   </header>
   <div class="header">
-    <h2>Reschedule Appointment</h2>
+    <h2>Child Registration</h2>
   </div>
-  <form class=Child action="EditChildScript.php">
-    <label for="child_id">Child Id / Parent's Name</label>
-    <div></div>
-    <input type="text" placeholder="Search.." name="child_id" id="child_id"><button type="search"><i class="fa fa-search"></i></button>
-    </div>
+  <form class=Child action="NewChildScript.php" method="POST">
     <div class="main-row">
       <div class="main-column">
-        <label for="first_name">First Name</label>
-        <input type="text" name="first_name" id="first_name">
+        <label class="required" for="first_name">First Name</label>
+        <input type="text" name="first_name" id="first_name" required>
       </div>
       <div class="main-column">
         <label for="middle_name">Middle Name</label>
         <input type="text" name="middle_name" id="middle_name">
       </div>
       <div class="main-column">
-        <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" id="last_name">
+        <label class="required" for="last_name">Last Name</label>
+        <input type="text" name="last_name" id="last_name" required>
       </div>
     </div>
     <div class="main-row">
       <div class="main-column">
-        <label for="Famo_name">Parant's Name</label>
-        <input type="text" name="famo_name" id="famo_name">
+        <label class="required" for="Famo_name">Parant's Name</label>
+        <input type="text" name="famo_name" id="famo_name" required>
       </div>
       <div class="main-column">
-        <label for="gender">Gender</label>
+        <label class="required" for="gender">Gender</label>
         <div>
-          <select name="gender" id="gender">
+          <select name="gender" id="gender" required>
             <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
         </div>
       </div>
       <div class="main-column">
-        <label for="dob">Date of Birth</label>
-        <input type="date" name="dob" id="dob">
+        <label class="required" for="dob">Date of Birth</label>
+        <input type="date" name="dob" id="dob" required>
       </div>
     </div>
     <hr>
@@ -70,26 +68,19 @@
         <div>
           <select name="district" id="district">
             <option value="">Select</option>
-            <option value="">Muzaffarpur</option>
-            <option value="">Vaishali</option>
-            <option value="">Sitamarhi</option>
-            <option value="">Saran</option>
-            <option value="">Sivan</option>
-            <option value="">West champaran</option>
+            <option value="Muzaffarpur">Muzaffarpur</option>
+            <option value="Vaishali">Vaishali</option>
+            <option value="Sitamarhi">Sitamarhi</option>
+            <option value="Saran">Saran</option>
+            <option value="Sivan">Sivan</option>
+            <option value="West champaran">West champaran</option>
           </select>
         </div>
       </div>
       <div class="main-column">
         <label for="state">State</label>
         <div>
-          <select name="state" id="state">
-            <option value="">Select</option>
-            <option value="bihar">Bihar</option>
-            <option value="haryana">Haryana</option>
-            <option value="maharashtra">Maharashtra</option>
-            <option value="up">Uttar Pradesh</option>
-            <option value="panjab">Panjab</option>
-          </select>
+          <?php fetch_existing_state($state); ?>
         </div>
       </div>
     </div>
@@ -109,27 +100,15 @@
       </div>
     </div>
     <hr>
-    <div class="main-row">
-      <div class="main-column">
-        <label for="">Appointment Date</label>
-        <input type="date">
-      </div>
-      <div class="main-column">
-        <label for="">Appointment Time</label>
-        <input type="time" id="time" min="09:00" max="18:00" required>
-      </div>
-    </div>
-
-    <hr>
     <button type="submit">Submit</button>
-    <button type="reset">Reset</button>
 
+    <button type="reset">Reset</button>
 
 
     <footer class="footer">
       <?php include('Includes/Footer.html'); ?>
     </footer>
-
+  </form>
 </body>
 
 </html>

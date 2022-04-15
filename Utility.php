@@ -58,6 +58,32 @@ class ID{
     $con->close();
   }
 }
+class USERID{
+  public static function generateuser_id()
+  {
+    include 'Connect.php';
+    $sql = "SELECT user_id from registration ORDER BY user_id DESC LIMIT 1";
+    $result = $con->query($sql);
+    $user_id = null;
+    if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $user_id = $row['user_id'];
+      $user_id = substr($user_id, 1);
+      $user_id = $user_id + 1;
+      if ($user_id < 10)
+        $user_id = "U00$user_id";
+      elseif ($user_id < 100)
+        $user_id = "U0$user_id";
+        elseif ($staff_id < 1000)
+        $user_id =  "U$user_id";
+      } else {
+      $user_id = 'U001';
+    }
+
+    return $user_id;
+    $con->close();
+  }
+}
 
 
 function fetch_state()

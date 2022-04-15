@@ -17,7 +17,7 @@ include 'Utility.php';
 <body>
 
   <header>
-    <?php include('Includes/Header.html'); ?>
+    <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
     <h2>Child Registration</h2>
@@ -26,7 +26,7 @@ include 'Utility.php';
     <div class="main-row">
       <div class="main-column">
         <label class="required" for="first_name">First Name</label>
-        <input type="text" name="first_name" id="first_name">
+        <input type="text" name="first_name" id="first_name" required>
       </div>
       <div class="main-column">
         <label for="middle_name">Middle Name</label>
@@ -34,18 +34,18 @@ include 'Utility.php';
       </div>
       <div class="main-column">
         <label class="required" for="last_name">Last Name</label>
-        <input type="text" name="last_name" id="last_name">
+        <input type="text" name="last_name" id="last_name" required>
       </div>
     </div>
     <div class="main-row">
       <div class="main-column">
         <label class="required" for="Famo_name">Parant's Name</label>
-        <input type="text" name="famo_name" id="famo_name">
+        <input type="text" name="famo_name" id="famo_name" required>
       </div>
       <div class="main-column">
         <label class="required" for="gender">Gender</label>
         <div>
-          <select name="gender" id="gender">
+          <select name="gender" id="gender" required>
             <option value="">Select</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -54,7 +54,7 @@ include 'Utility.php';
       </div>
       <div class="main-column">
         <label class="required" for="dob">Date of Birth</label>
-        <input type="date" name="dob" id="dob">
+        <input type="date" name="dob" id="dob" required>
       </div>
     </div>
     <hr>

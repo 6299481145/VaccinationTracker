@@ -8,19 +8,19 @@
   <link rel="stylesheet" href="design.css">
   <link rel="shortcut icon" href="Image/vac.png" type="image/x-icon">
   <title>VAT 1.0</title>
-
 </head>
 
 
 <body>
 
   <header>
-    <?php include('Includes/Header.html'); ?>
+    <?php include('Includes/header.php'); ?>
   </header>
   <div class="header">
-    <h2>Reschedule Appointment</h2>
+    <h2>Cancel Appointment</h2>
   </div>
-  <form class=Child action="EditChildScript.php">
+
+  <form class=Child action="CancelAppointmentScript.php">
     <label for="child_id">Child Id / Parent's Name</label>
     <div></div>
     <input type="text" placeholder="Search.." name="child_id" id="child_id"><button type="search"><i class="fa fa-search"></i></button>
@@ -121,8 +121,10 @@
     </div>
 
     <hr>
-    <button type="submit">Submit</button>
+    <button type="submit">Cancel</button>
     <button type="reset">Reset</button>
+
+
 
 
 
