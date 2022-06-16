@@ -1,37 +1,11 @@
 <?php
-$child_id = $_POST['child_id'];
 
-include_once 'Connect.php';
-include_once 'Utility.php';
+$appointment_id = $_GET['aid'];
+//echo $appointment_id;
 
-// use vaccination_tracker\appointment_common;
-
-require_once "./AppointmentCommon.php";
-$data = appointment_common::next_vaccination("CH001");
-
-$sql = "SELECT * FROM child WHERE child_id='$child_id'";
-$result = $con->query($sql);
-
-if ($result->num_rows > 0) {
-  $row = $result->fetch_assoc();
-  $first_name = $row['first_name'];
-  $middle_name = $row['middle_name'];
-  $last_name = $row['last_name'];
-  $parents_name = $row['parents_name'];
-  $gender = $row['gender'];
-  $dob = $row['dob'];
-  $village = $row['village'];
-  $district = $row['district'];
-  $state = $row['state'];
-  $pincode = $row['pincode'];
-  $contact_no = $row['contact_no'];
-  $email = $row['email'];
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,21 +16,14 @@ if ($result->num_rows > 0) {
   <title>VAT 1.0</title>
 </head>
 
-
 <body>
-
   <header>
     <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
-    <h2>New Appointment</h2>
+    <h2>New vaccination</h2>
   </div>
-  <form class=Child action="" method="POST">
-    <label for="child_id">Child Id / Parent's Name</label>
-    <div>
-      <input type="text" placeholder="Search.." name="child_id" id="child_id" value="<?= $child_id ?>"><button><i class="fa fa-search"></i></button>
-    </div>
-  </form>
+
   <form class=Child action="./NewAppointmentScript.php" method="POST">
     <input type="hidden" name="child_id" id="child_id" value="<?= $child_id ?>">
     <div class="main-row">
@@ -145,7 +112,7 @@ if ($result->num_rows > 0) {
         <input type="time" id="appointment_time" name="appointment_time">
       </div>
       <div class="main-column">
-        <label for=""><?= $data;?></label>
+        <label for=""><?= $data; ?></label>
       </div>
     </div>
     <hr>
@@ -155,14 +122,6 @@ if ($result->num_rows > 0) {
   <footer class="footer">
     <?php include('Includes/Footer.html'); ?>
   </footer>
-  <script>
-    var today = new Date();
-    var ampm = today.getHours() >= 12 ? ' PM' : ' AM';
-    var time = today.getHours() + ":" + today.getMinutes() + ampm;
-    // document.getElementById("currentTime").value = time;
-    // document.getElementById("currentDate").value = today;
-  </script>
-
 </body>
 
 </html>

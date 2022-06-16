@@ -34,7 +34,7 @@
         <input type="text" name="last_name" id="last_name">
       </div>
     </div>
-
+    <div class="main-row">
     <div class="main-column">
       <label for="gender">Gender</label>
       <div>
@@ -45,12 +45,12 @@
         </select>
       </div>
     </div>
-    <div class="main-column">
+     <div class="main-column">
       <label for="dob">Date of Birth</label>
       <input type="date" name="dob" id="dob">
     </div>
     </div>
-
+    </div>
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>

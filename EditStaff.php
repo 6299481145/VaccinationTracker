@@ -65,7 +65,7 @@ if ($result->num_rows > 0) {
         <input type="text" name="last_name" id="last_name" value="<?= $last_name ?>">
       </div>
     </div>
-
+    <div class="main-row">
     <div class="main-column">
       <label for="gender">Gender</label>
       <div>
@@ -79,6 +79,7 @@ if ($result->num_rows > 0) {
     <div class="main-column">
       <label for="dob">Date of Birth</label>
       <input type="date" name="dob" id="dob" value="<?= $dob ?>">
+    </div>
     </div>
     </div>
 

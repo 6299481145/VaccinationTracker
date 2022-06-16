@@ -74,13 +74,39 @@ class USERID{
         $user_id = "U00$user_id";
       elseif ($user_id < 100)
         $user_id = "U0$user_id";
-        elseif ($staff_id < 1000)
+        elseif ($user_id < 1000)
         $user_id =  "U$user_id";
       } else {
       $user_id = 'U001';
     }
 
     return $user_id;
+    $con->close();
+  }
+}
+class APPOINTMENTID{
+  public static function generateappointment_id()
+  {
+    include 'Connect.php';
+    $sql = "SELECT appointment_id from appointment ORDER BY appointment_id DESC LIMIT 1";
+    $result = $con->query($sql);
+    $appointment_id = null;
+    if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $appointment_id = $row['appointment_id'];
+      $appointment_id = substr($appointment_id, 1);
+      $appointment_id = $appointment_id + 1;
+      if ($appointment_id < 10)
+        $appointment_id = "A00$appointment_id";
+      elseif ($appointment_id < 100)
+        $appointment_id = "A0$appointment_id";
+        elseif ($appointment_id < 1000)
+        $appointment_id =  "A$appointment_id";
+      } else {
+      $appointment_id = 'A001';
+    }
+
+    return $appointment_id;
     $con->close();
   }
 }

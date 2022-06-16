@@ -14,9 +14,7 @@
 <body>
 
   <header>
-    <?php include('Includes/Header.php');
-    
-    ?>
+    <?php include('Includes/Header.php');?>
   </header>
   <div class="header">
     <h2>Home</h2>

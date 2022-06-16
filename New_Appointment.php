@@ -21,8 +21,9 @@ if ($result->num_rows > 0) {
   $contact_no = $row['contact_no'];
   $email = $row['email'];
 }
-?>
 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,7 +88,7 @@ if ($result->num_rows > 0) {
         <input type="date" name="dob" id="dob" value="<?= $dob ?>">
       </div>
     </div>
-    <hr>
+   
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
@@ -129,7 +130,8 @@ if ($result->num_rows > 0) {
       </div>
     </div>
     <hr>
-    <div class="main-row">
+   
+   <div class="main-row">
       <div class="main-column">
         <label for="">Appointment Date</label>
         <input type="date">

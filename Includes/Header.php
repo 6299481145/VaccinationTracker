@@ -47,7 +47,7 @@ if (!isset($_SESSION['username'])) {
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="BookVaccine.php">Book Vaccine</a>
+        <a href="BookVaccine.php">Vaccination</a>
         <a href="RescheduleVaccine.php">Reschedule Vaccine </a>
         <a href="CancelVaccine.php">Cancel vaccine </a>
       </div>
@@ -86,7 +86,16 @@ if (!isset($_SESSION['username'])) {
         <a href="DailyCollection.php">Daily Collection</a>
       </div>
     </div>
-    <a href="Logout.php">Logout</a>
+    <div class="dropdown">
+        <button class="dropbtn">
+         <?= $_SESSION['username']; ?>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="">Profile</a>
+          <a href="Logout.php">Logout</a>
+        </div>
+      </div>
   </div>
 </body>
 

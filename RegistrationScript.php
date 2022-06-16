@@ -15,7 +15,7 @@ $stat = $stmt->execute();
 
 if($stat != false) {
     echo "You are successfully registered!";
-    echo "<br><a href='Login.php'>Click here</> to go back!";
+    echo "<br><a href='Register.php'>Click here</> to go back!";
 } else {
     echo $con->error;
 }

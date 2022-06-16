@@ -14,6 +14,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     session_start();
     $_SESSION['username'] = $row['username'];
+    $_SESSION['user_id'] = $row['user_id'];
     if ($row['type'] == "staff") {
         header("Location:Home.php");
     } elseif ($row['type'] == "parent") {

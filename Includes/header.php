@@ -63,7 +63,17 @@ if (!isset($_SESSION['username'])) {
         </div>
       </div>
 
-      <a href="Logout.php">Logout</a>
+      <div class="dropdown">
+        <button class="dropbtn">
+         User
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="">Profile</a>
+          <a href="Logout.php">Logout</a>
+        </div>
+      </div>
+     
     </div>
   </body>
 </html>

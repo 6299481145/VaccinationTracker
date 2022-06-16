@@ -212,6 +212,7 @@ input[type="date"]:hover {
 #child td,
 #child th {
   border: 2px solid #ddd;
+  text-align: center;
 }
 #child tr:hover {
   background-color: #ddd;
@@ -301,4 +302,37 @@ input[type="date"]:hover {
   font-size: 20px;
   background-color: rgb(128, 128, 134);
   color: Black;
+}
+/* ---------------------------------- Controls for modal------------------------------ */
+.Modal-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  background-color: olive;
+  width: 50%;
+  margin: auto;
+  margin-top: 200;
+  border: 2px solid black;
+}
+
+.modal-title {
+  background-color: navy;
+  color: white;
+  padding: 5px;
+}
+
+.modal-body {
+  min-height: 50px;
+  padding: 5px;
+}
+
+.modal-footer {
+  padding: 5px;
+  text-align: center;
 }
