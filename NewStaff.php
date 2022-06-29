@@ -19,7 +19,7 @@
   <div class="header">
     <h2>Staff Registration</h2>
   </div>
-  <form class=Staff action="NewStaffScript.php" method="POST">
+  <form action="NewStaffScript.php" method="POST">
     <div class="main-row">
       <div class="main-column">
         <label for="first_name">First Name</label>

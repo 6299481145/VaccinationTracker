@@ -4,10 +4,10 @@ $child_id = $_POST['child_id'];
 include_once 'Connect.php';
 include_once 'Utility.php';
 
-// use vaccination_tracker\appointment_common;
+// use vaccination_tracker\vaccination_common;
 
 require_once "./AppointmentCommon.php";
-$data = appointment_common::next_vaccination("CH001");
+// $data = vaccination_common::next_vaccination_group_id($child_id);
 
 $sql = "SELECT * FROM child WHERE child_id='$child_id'";
 $result = $con->query($sql);
@@ -57,7 +57,7 @@ if ($result->num_rows > 0) {
       <input type="text" placeholder="Search.." name="child_id" id="child_id" value="<?= $child_id ?>"><button><i class="fa fa-search"></i></button>
     </div>
   </form>
-  <form class=Child action="./NewAppointmentScript.php" method="POST">
+  <form action="./NewAppointmentScript.php" method="POST">
     <input type="hidden" name="child_id" id="child_id" value="<?= $child_id ?>">
     <div class="main-row">
       <div class="main-column">
@@ -145,7 +145,7 @@ if ($result->num_rows > 0) {
         <input type="time" id="appointment_time" name="appointment_time">
       </div>
       <div class="main-column">
-        <label for=""><?= $data;?></label>
+        <label for=""><?= $data; ?></label>
       </div>
     </div>
     <hr>

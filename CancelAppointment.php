@@ -20,7 +20,7 @@
     <h2>Cancel Appointment</h2>
   </div>
 
-  <form class=Child action="CancelAppointmentScript.php">
+  <form  action="CancelAppointmentScript.php">
     <label for="child_id">Child Id / Parent's Name</label>
     <div></div>
     <input type="text" placeholder="Search.." name="child_id" id="child_id"><button type="search"><i class="fa fa-search"></i></button>
