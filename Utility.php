@@ -32,7 +32,8 @@ class Utility
   }
 }
 
-class ID{
+class ID
+{
   public static function generatestaff_id()
   {
     include 'Connect.php';
@@ -58,7 +59,8 @@ class ID{
     $con->close();
   }
 }
-class USERID{
+class USERID
+{
   public static function generateuser_id()
   {
     include 'Connect.php';
@@ -74,9 +76,9 @@ class USERID{
         $user_id = "U00$user_id";
       elseif ($user_id < 100)
         $user_id = "U0$user_id";
-        elseif ($user_id < 1000)
+      elseif ($user_id < 1000)
         $user_id =  "U$user_id";
-      } else {
+    } else {
       $user_id = 'U001';
     }
 
@@ -84,7 +86,8 @@ class USERID{
     $con->close();
   }
 }
-class APPOINTMENTID{
+class APPOINTMENTID
+{
   public static function generateappointment_id()
   {
     include 'Connect.php';
@@ -100,9 +103,9 @@ class APPOINTMENTID{
         $appointment_id = "A00$appointment_id";
       elseif ($appointment_id < 100)
         $appointment_id = "A0$appointment_id";
-        elseif ($appointment_id < 1000)
+      elseif ($appointment_id < 1000)
         $appointment_id =  "A$appointment_id";
-      } else {
+    } else {
       $appointment_id = 'A001';
     }
 
@@ -170,3 +173,5 @@ class message
     </script>';
   }
 }
+
+

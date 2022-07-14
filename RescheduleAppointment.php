@@ -3,6 +3,11 @@ $appointment_id = $_POST['appointment_id'];
 include_once 'Connect.php';
 include_once 'Utility.php';
 
+require_once "./VaccinationCommon.php";
+require_once "./AppointmentCommon.php";
+$next_group_id = vaccination_common::next_vaccination_group_id($child_id);
+$vaccine_ids = vaccination_common::fetch_vaccine_ids($next_group_id);
+
 $sql = "SELECT * FROM appointment WHERE appointment_id='$appointment_id'";
 $result = $con->query($sql);
 
@@ -149,6 +154,17 @@ if ($result->num_rows > 0) {
         <label for="">Appointment Time</label>
         <input type="time" name="appointment_time" id="time" min="09:00" max="18:00" value="<?= $vaccination_time ?>" required>
       </div>
+      <div class="main-column">
+      <label for=""><b>Vaccines</b></label>
+      <div></div>
+      <?php
+      foreach ($vaccine_ids as $vid) {
+      ?>
+        <label for=""> <?= vaccination_common::fetch_vaccine_name($vid[0]); ?></label><br>
+      <?php
+      }
+      ?>
+   </div>
     </div>
 
     <hr>

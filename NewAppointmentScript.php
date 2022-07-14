@@ -9,7 +9,7 @@ $vaccination_time=$_POST['appointment_time'];
 $user_id = $_SESSION['user_id'];
 // echo $vaccination_date . "<br>";
 // echo $vaccination_time . "<br>";
-$sql = "INSERT INTO appointment VALUES(?,?,CURDATE(),CURTIME(),?,?,?)";
+$sql = "INSERT INTO appointment (appointment_id, child_id, date, time, vaccination_date, vaccination_time, user_id) VALUES(?,?,CURDATE(),CURTIME(),?,?,?)";
 $stmt = $con->prepare($sql);
 $stmt->bind_param("sssss", $appointment_id, $child_id, $vaccination_date,$vaccination_time,$user_id);
 $stat = $stmt->execute();

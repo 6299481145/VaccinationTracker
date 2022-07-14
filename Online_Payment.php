@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,19 +13,20 @@
 
 <body>
 
-<header>
+    <header>
         <?php include('Includes/header.php'); ?>
-</header>
-<div class="header">
-         <h2>Online Payment</h2>
-</div>
+    </header>
+    <div class="header">
+        <h2>Online Payment</h2>
+    </div>
 
 
 
 
-<footer class="footer">
-    <?php include('Includes/Footer.html'); ?>
-</footer>
+    <footer class="footer">
+        <?php include('Includes/Footer.html'); ?>
+    </footer>
 
 </body>
+
 </html>

@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
     <h2>Edit Child</h2>
   </div>
 
-  <form class=Child action="" method="POST">
+  <form  action="" method="POST">
     <label for="child_id">Child Id / Parent's Name</label>
     <div>
       <input type="text" placeholder="Search.." name="child_id" id="child_id" value="<?= $child_id ?>"><button><i class="fa fa-search"></i></button>

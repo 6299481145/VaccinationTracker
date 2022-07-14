@@ -17,7 +17,7 @@
         <?php include('Includes/Header.php'); ?>
     </header>
     <div class="header">
-        <h2>Book Vaccine </h2>
+        <h2>Today's Vaccine </h2>
     </div>
 
     <table id="child">
@@ -35,7 +35,9 @@
         <tbody>
             <?php
             include 'Connect.php';
-            $sql = "SELECT * FROM appointment";     //here $sql is of string type
+            // $date=$_GET['date'];
+            // echo $date;
+            $sql = "SELECT * FROM appointment WHERE vaccination_date=CURDATE()";     //here $sql is of string type 
             $result = $con->query($sql);          //here $result is of type mysqli_result
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {

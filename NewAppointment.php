@@ -4,10 +4,12 @@ $child_id = $_POST['child_id'];
 include_once 'Connect.php';
 include_once 'Utility.php';
 
-// use vaccination_tracker\vaccination_common;
-
+ //use vaccination_tracker\vaccination_common;
+require_once "./VaccinationCommon.php";
 require_once "./AppointmentCommon.php";
-// $data = vaccination_common::next_vaccination_group_id($child_id);
+$next_group_id = vaccination_common::next_vaccination_group_id($child_id);
+$vaccine_ids = vaccination_common::fetch_vaccine_ids($next_group_id);
+// echo json_encode($vaccine_ids);
 
 $sql = "SELECT * FROM child WHERE child_id='$child_id'";
 $result = $con->query($sql);
@@ -54,7 +56,7 @@ if ($result->num_rows > 0) {
   <form class=Child action="" method="POST">
     <label for="child_id">Child Id / Parent's Name</label>
     <div>
-      <input type="text" placeholder="Search.." name="child_id" id="child_id" value="<?= $child_id ?>"><button><i class="fa fa-search"></i></button>
+      <input type="text" placeholder="Search.." name="child_id" id="child_id" value="<?= $child_id ?>"><button><i class="fa fa-search"></i></button> 
     </div>
   </form>
   <form action="./NewAppointmentScript.php" method="POST">
@@ -145,7 +147,18 @@ if ($result->num_rows > 0) {
         <input type="time" id="appointment_time" name="appointment_time">
       </div>
       <div class="main-column">
-        <label for=""><?= $data; ?></label>
+      <label for=""><b>Vaccines</b></label>
+      <div></div>
+        <?php
+        foreach($vaccine_ids as $vid)
+        {
+
+        
+        ?>
+        <label for=""><?= vaccination_common::fetch_vaccine_name($vid[0]); ?></label><br>
+        <?php
+        }
+        ?>
       </div>
     </div>
     <hr>

@@ -3,6 +3,10 @@ include_once 'Connect.php';
 include_once 'Utility.php';
 
 $appointment_id = $_GET['aid'];
+require_once "./VaccinationCommon.php";
+require_once "./AppointmentCommon.php";
+$next_group_id = vaccination_common::next_vaccination_group_id($child_id);
+$vaccine_ids = vaccination_common::fetch_vaccine_ids($next_group_id);
 
 $sql = "SELECT * FROM appointment WHERE appointment_id='$appointment_id'";
 $result = $con->query($sql);
@@ -19,7 +23,7 @@ if ($result->num_rows > 0) {
   if ($result_child->num_rows > 0) {
     $row_child = $result_child->fetch_assoc();
     $first_name = $row_child['first_name'];
-    $middle_name = $Irow_child['middle_name'];
+    $middle_name = $row_child['middle_name'];
     $last_name = $row_child['last_name'];
     $parents_name = $row_child['parents_name'];
     $gender = $row_child['gender'];
@@ -52,8 +56,8 @@ if ($result->num_rows > 0) {
     <h2>New vaccination</h2>
   </div>
 
-  <form action="./NewAppointmentScript.php" method="POST">
-
+  <form action="./NewVaccinationScript.php" method="POST">
+    <input type="hidden" name="appointment_id" id="" value="<?= $appointment_id?>">
     <div class="main-row">
       <div class="main-column">
         <label for="first_name">First Name</label>
@@ -127,7 +131,21 @@ if ($result->num_rows > 0) {
         <label for="">Appointment Time</label>
         <input type="text" id="appointment_time" name="appointment_time" value="<?= $vaccination_time ?>" readonly>
       </div>
+    <div class="main-column">
+      <label for=""><b>Vaccines</b></label>
+      <div></div>
+      <?php
+      foreach ($vaccine_ids as $vid) {
+      ?>
+        <input type="checkbox" id="vaccine[]" name="vaccine[]" value="<?= $vid[0]?>"> <?= vaccination_common::fetch_vaccine_name($vid[0]); ?><br>
+      <?php
+      }
+      ?>
     </div>
+    </div>
+    <hr>
+    <button type="submit">Submit</button>
+    
 
 
   </form>
