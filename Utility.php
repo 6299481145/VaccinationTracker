@@ -145,7 +145,7 @@ function fetch_existing_state($p_state)
   echo '</select>';
   $con->close();
 }
-echo $p_state;
+//echo $p_state;
 
 class message
 {

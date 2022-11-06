@@ -16,9 +16,7 @@
   <header>
     <?php include('Includes/Header.php');?>
   </header>
-  <div class="header">
-    <h2>Home</h2>
-  </div>
+ 
 
   <div class="row">
     <div class="column">
