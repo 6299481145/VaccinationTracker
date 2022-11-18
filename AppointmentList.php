@@ -17,7 +17,7 @@
         <?php include('Includes/Header.php'); ?>
     </header>
     <div class="header">
-        <h2>Appointment List</h2>
+        <h4>Appointment List</h4>
     </div>
     <table id="child">
         <thead>

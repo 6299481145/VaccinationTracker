@@ -16,7 +16,7 @@
         <?php include('Includes/Header.php'); ?>
 </header>
 <div class="header">
-         <h2>Child Vaccination Chart</h2>
+         <h4>Child Vaccination Chart</h4>
 </div>
 
 <table id="child">
@@ -44,7 +44,7 @@
                         <td><?= $row['vaccine_id'] ?></td>
                         <td><?= $row['vaccine_name'] ?></td>
                         <td><?= $row['prevents'] ?></td>
-                        <td><?= $row['minimum_age_for_dose'] ?></td>
+                        <td><?= $row['minimum_age'] ?></td>
                         <td><?= $row['units'] ?></td>
                         
                     </tr>
@@ -54,14 +54,11 @@
             ?>
         </tbody>
     </table>
-
-
-
-
-
-<footer class="footer">
-    <?php include('Includes/Footer.html'); ?>
-</footer>
-
+    <footer class="footer">
+        <?php include('Includes/Footer.html'); ?>
+    </footer>
+    <script>
+		$(document).foundation();
+	</script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <?php
-// session_start();
-// if (!isset($_SESSION['username'])) {
-//   header("Location:SessionExpired.html");
-// }
+session_start();
+if (!isset($_SESSION['username'])) {
+  header("Location:SessionExpired.html");
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,12 +15,23 @@
   <title>Header</title>
   <link rel="stylesheet" href="design.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="shortcut icon" href="Image/vac.png" type="image/x-icon">
+  <!-- Compressed CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" />
+	<!-- Compressed JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js">
+	</script>
 </head>
 
 <body>
+<div data-sticky-container >
+		<div data-sticky>
   <div class="navbar" id="mynavbar">
     <a href="StaffDashboard.php"class="active"><b>VAT</b></a>
-    
+   
     <div class="dropdown">
       <button class="dropbtn">
         Children
@@ -67,9 +78,7 @@
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="OnlinePayment.php">Online Payment</a>
-        <a href="CashPayment.php">Cash Payment</a>
-        <a href="DailyBanking.php">Daily Banking</a>
+        <a href="Payment.php">Payment</a> 
       </div>
     </div>
     <div class="dropdown">
@@ -89,9 +98,12 @@
      <div class="navbar-right">
     <a href="Logout.php">Logout</a>
     </div>
-    
     </div>
+    
+
   </div>
+  </div>
+    </div>
   <script>
 function navfun() {
   var x = document.getElementById("mynavbar");

@@ -1,33 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap'); 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+
+}
+ 
 .header {
   text-align: center;
   width: 100%;
   padding: 20px;
   background-color: lightseagreen;
   color: whitesmoke;
-  text-shadow: 1px 1px 2px black, 0 0 25px lightseagreen, 0 0 5px darkcyan;
-  font-size: 15px;
-  line-height: 20px;
-  margin-bottom: 40px;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(32, 178, 170), 0 0 5px rgb(0, 139, 139);
+  font-size: 17px;
+  line-height: 30px;
+  margin-bottom: 0px;
 }
-.footer {
+
+ .footer {
   text-align: center;
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  line-height: 55px;
+  line-height: 20px;
   font-size: 20px;
   background-color:darkcyan;
   color: whitesmoke;
-  text-shadow: 1px 1px 2px black;
-}
-/* ---------------------------------- Navigation bar controls ------------------------------- */
-.navbar {
-
-  padding: 0 10;
+  text-shadow: 1px 1px 3px black, 0 0 25px lightseagreen, 0 0 5px darkcyan;
+min-height: 40px;
+} 
+.image{
+  width: 100%;
+  height: 700px;
+  border: 1px solid darkcyan;
+} 
+ /*---------------------------------- Navigation bar controls ------------------------------- */
+ .navbar { 
+  margin: 0;
+  padding: 0;
+  /* padding: 0 10; */
   left: 0%;
-  top: 0%;
+  top: 0;
   overflow: hidden;
   width: 100%;
   line-height: 35px;
@@ -38,23 +53,23 @@
 .navbar-right{
   float:right;
   font-size: 20px;
-}
+} 
 .navbar a {
   float: left;
   color: #f5f5f5;
   text-align: center;
   padding: 15px;
   text-decoration: none;
-  
+  display: block;
 }
 .active {
   background-color: rgb(8, 190, 181);
   color: whitesmoke;
 }
 
-.navbar .icon {
+ .navbar .icon {
   display: none;
-}
+} 
 
 .dropdown {
   float: left;
@@ -63,7 +78,6 @@
 
 .dropdown .dropbtn {
   
-  font-size: 20px;
   border: none;
   outline: none;
   color:#f5f5f5;
@@ -104,7 +118,7 @@
   display: block;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .navbar a:not(:first-child), .dropdown .dropbtn {
     display: none;
   }
@@ -117,7 +131,7 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .navbar.responsive {position:relative;}
  
   .navbar.responsive .icon {
@@ -141,18 +155,7 @@
 .block {
   display: block;
   padding-top: 10px;
-}
-button {
-  color: white;
-  padding: 10px;
-  margin: 10px;
-  background-color:darkcyan;
-  border-radius: 5px;
-  font-size: 20px;
-}
-button:hover {
-  background-color: lightseagreen;
-}
+} 
 
 /* ---------------------------------- Form and Form Controls ------------------------------- */
 .form {
@@ -164,23 +167,7 @@ button:hover {
 .form input {
   padding: 3px;
 }
-h1 {
-  /* margin-top: 100px;
-  margin-left: 600px;
-  margin-right: 670px; */
-  margin: 0 auto;
-  height: 70px;
-  padding: 20px;
-  text-align: center;
-  border-radius: 3px;
-  background-color: rgb(120, 120, 134);
-  color: white;
-  text-shadow: 1px 1px 2px black, 0 0 20px blue, 0 0 5px darkblue;
-}
-hr {
-  border: 1px solid grey;
-  margin-bottom: 0px;
-}
+
 .form label {
   width: 150px;
   margin: auto;
@@ -188,13 +175,18 @@ hr {
   margin-top: 15px;
   margin-left: 600px;
 }
-.form button {
-  width: 30%;
-  height: 50px;
+
+button {
+  color: black;
   padding: 10px;
-  margin-left: 600px;
-  font-size: 20px;
+  margin: 10px;
+  margin-left: 30px;
+  background-color:darkcyan;
   border-radius: 5px;
+  font-size: 15px;
+}
+button:hover {
+  background-color: lightseagreen;
 }
 .required:after {
   content: "*";
@@ -202,8 +194,11 @@ hr {
 }
 #child_id,
 #staff_id {
-  width: 60%;
+  margin-left: 30px;
+  margin-top: 0px;
+  width: 45%;
   height: 45px;
+  border-radius: 50px;
   display: inline-block;
 }
 #gender,
@@ -252,20 +247,6 @@ input[type="password"],
 input[type="date"]:hover {
   color: black;
 }
-#user {
-  display: block;
-  width: 30%;
-  height: 40px;
-  padding: 6px 15px;
-  margin: 8px 0px;
-  margin-top: 0px;
-  margin-left: 600px;
-  background-color: white;
-  box-sizing: border-box;
-  border-radius: 3px;
-  border: 2px solid grey;
-  font-size: 15px;
-}
 
 /* ---------------------------------- Controls for Child List page------------------------------- */
 #child {
@@ -288,61 +269,70 @@ input[type="date"]:hover {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: gray;
-  color: white;
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  background-color: lightseagreen;
+  color: whitesmoke;
+  font-size: 17px;
+  text-shadow: 1px 1px 3px black;
 }
-/* ---------------------------------- Controls for Home page card------------------------------- */
-* {
-  box-sizing: border-box;
-}
-.column {
-  float: left;
-  width: 25%;
-  margin-top: 80px;
-  padding: 5px;
-}
-.row {
-  margin: 0 -5px;
-}
+/* ---------------------------------- Controls for staff dashboard cards------------------------------- */
 .card {
-  box-shadow: 0 4px 8px 0 rgba(8, 8, 8, 0.2);
-  padding: 10px;
+  background-color: rgb(203, 227, 236);
+  color: black;
+  padding: 20px;
   border-radius: 5px;
-  height: 200px;
-  width: 450px;
-
+  height: 180px;
+  font-size: 20;
   text-align: center;
-  background-color: #beb8b8;
+ 
 }
+
+.cards {
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+  display: grid;
+  gap:2rem;
+  margin-top: 30px;
+}
+@media (min-width: 600px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}
+
 /* ---------------------------------- Controls for Child Registration form------------------------------ */
 * {
   box-sizing: border-box;
 }
+
 .main-column {
   margin-top: 15px;
+  margin-left: 20px;
   float: left;
   width: 30%;
   padding: 10px;
 }
 .main-row:after {
+ 
   content: "";
   display: table;
   clear: left;
+  
 }
 /* ---------------------------------- Controls for modal------------------------------ */
-.modal {
+/* .modal {
   background-color: beige;
   width: 500px;
   margin: 200 100;
   border: 1px solid rgb(107, 81, 48);
   padding: 0px;
-  /* display: none; */
+  display: none;
   z-index: 1;
   position: fixed;
-}
+} */
 
-.modal-header {
+/* .modal-header {
   background-color: gray;
   color: white;
   padding: 1px;
@@ -356,16 +346,11 @@ input[type="date"]:hover {
 
 .modal-footer {
   text-align: right;
-  background-color: gray;
-  padding: 5px 10px;
-}
-
-.image{
-  width: 100%;
-  height: 700px;
-  border: 1px solid darkcyan;
-}
+  background-color: lightseagreen;
+ 
+} */
 /* ---------------------------------- Controls for modal------------------------------ */
+
 .Modal-container {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -376,55 +361,61 @@ input[type="date"]:hover {
 }
 
 .modal-content {
-  background-color: olive;
-  width: 50%;
+  background-color: whitesmoke;
+  width: 40%;
   margin: auto;
-  margin-top: 200;
+  margin-top: 200px;
   border: 2px solid black;
 }
 
-.modal-title {
-  background-color: navy;
-  color: white;
-  padding: 5px;
+.modal-header {
+  background-color: darkcyan;
+  color: whitesmoke;
+  min-height: 50px;
+  font-size: 20px;
+  padding: 10px;
+  text-shadow: 1px 1px 5px black;
 }
 
 .modal-body {
-  min-height: 50px;
+  min-height: 60px;
   padding: 5px;
+  text-align: center;
 }
 
 .modal-footer {
   padding: 5px;
   text-align: center;
+  background-color: lightseagreen;
+
+ 
 }
 /*------------------------Ready-made Login Form------------------------------*/
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins',sans-serif;
-}
+
 body{
   background:whitesmoke;
-  overflow: hidden;
+  
 }
+
 ::selection{
   background:#008b8b;
 }
+
 .container{
   max-width: 440px;
   padding: 0 20px;
   margin: 170px auto;
   margin-top:90px;
 }
+
 .wrapper{
   width: 100%;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
 }
+
 .wrapper .title{
   height: 90px;
   background: #16a085;
@@ -436,14 +427,17 @@ body{
   align-items: center;
   justify-content: center;
 }
+
 .wrapper form{
   padding: 30px 25px 25px 25px;
 }
+
 .wrapper form .row{
   height: 45px;
   margin-bottom: 15px;
   position: relative;
 }
+
 .wrapper form .row input,.row select{
   height: 100%;
   width: 100%;
@@ -470,7 +464,8 @@ select.decorated option a:hover {
 select option:hover {
     box-shadow: 0 0 10px 100px #000 inset;
 }
-.wrapper form .row i{
+
+ .wrapper form .row i{
   position: absolute;
   width: 47px;
   height: 100%;
@@ -482,7 +477,8 @@ select option:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} 
+
 .wrapper form .pass{
   margin: -8px 0 20px 0;
 }
@@ -494,6 +490,7 @@ select option:hover {
 .wrapper form .pass a:hover{
   text-decoration: underline;
 }
+
 .wrapper form .button input{
   color: #fff;
   font-size: 20px;
@@ -517,4 +514,4 @@ form .button input:hover{
 }
 form .signup-link a:hover{
   text-decoration: underline;
-}
+} 

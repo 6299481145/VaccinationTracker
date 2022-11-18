@@ -14,7 +14,7 @@ function message_box($title, $message)
 <body>
 <div class="modal-container" id="message_box">
         <div class="modal-content">
-            <div class="modal-title">
+            <div class="modal-header">
                 <?= $title ?>
             </div>
             <div class="modal-body">
@@ -35,7 +35,7 @@ function message_box($title, $message)
     
     <?php
 }
- message_box("Hello", "This is a test message!");
+ message_box("VAT", "Child registration successfully!");
 ?>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 include 'Utility.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,22 +9,20 @@ include 'Utility.php';
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="design.css">
   <link rel="shortcut icon" href="Image/vac.png" type="image/x-icon">
   <title>VAT 1.0</title>
 </head>
-
-
 <body>
 
   <header>
     <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
-    <h2>Child Registration</h2>
+    <h4>Child Registration</h4>
   </div>
   <form class=Child action="NewChildScript.php" method="POST">
-    <div class="main-row">
+   
+  <div class="main-row">
       <div class="main-column">
         <label class="required" for="first_name">First Name</label>
         <input type="text" name="first_name" id="first_name" required>
@@ -57,7 +56,7 @@ include 'Utility.php';
         <input type="date" name="dob" id="dob" required>
       </div>
     </div>
-    <hr>
+ 
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
@@ -80,7 +79,9 @@ include 'Utility.php';
       <div class="main-column">
         <label for="state">State</label>
         <div>
-          <?php fetch_existing_state($state); ?>
+          <?php
+          
+           fetch_existing_state($state); ?>
         </div>
       </div>
     </div>
@@ -92,23 +93,26 @@ include 'Utility.php';
       </div>
       <div class="main-column">
         <label for="contact_no">Contact No</label>
-        <input type="text" name="contact_no" id="contact_no">
+        <input type="text" name="contact_no" id="contact_no" maxlength="10">
       </div>
       <div class="main-column">
         <label for="email">Email</label>
         <input type="text" name="email" id="email">
       </div>
     </div>
-    <hr>
+    
     <button type="submit">Submit</button>
 
     <button type="reset">Reset</button>
 
-
+    
     <footer class="footer">
       <?php include('Includes/Footer.html'); ?>
     </footer>
   </form>
+  <script>
+		$(document).foundation();
+	</script>
 </body>
 
 </html>

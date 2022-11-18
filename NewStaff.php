@@ -17,7 +17,7 @@
     <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
-    <h2>Staff Registration</h2>
+    <h4>Staff Registration</h4>
   </div>
   <form action="NewStaffScript.php" method="POST">
     <div class="main-row">
@@ -40,8 +40,8 @@
       <div>
         <select name="gender" id="gender">
           <option value="">Select</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
       </div>
     </div>
@@ -50,7 +50,9 @@
       <input type="date" name="dob" id="dob">
     </div>
     </div>
+   
     </div>
+   
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
@@ -61,12 +63,12 @@
         <div>
           <select name="district" id="district">
             <option value="">Select</option>
-            <option value="">Muzaffarpur</option>
-            <option value="">Vaishali</option>
-            <option value="">Sitamarhi</option>
-            <option value="">Saran</option>
-            <option value="">Sivan</option>
-            <option value="">West champaran</option>
+            <option value="Muzaffarpur">Muzaffarpur</option>
+            <option value="Vaishali">Vaishali</option>
+            <option value="Sitamarhi">Sitamarhi</option>
+            <option value="Saran">Saran</option>
+            <option value="Sivan">Sivan</option>
+            <option value="West champaran">West champaran</option>
           </select>
         </div>
       </div>
@@ -75,11 +77,11 @@
         <div>
           <select name="state" id="state">
             <option value="">Select</option>
-            <option value="bihar">Bihar</option>
-            <option value="haryana">Haryana</option>
-            <option value="maharashtra">Maharashtra</option>
-            <option value="up">Uttar Pradesh</option>
-            <option value="panjab">Panjab</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Hariyana">Hariyana</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Panjab">Panjab</option>
           </select>
         </div>
       </div>
@@ -99,7 +101,7 @@
         <input type="text" name="email" id="email">
       </div>
     </div>
-    <hr>
+    
     <button type="submit">Submit</button>
 
     <button type="reset">Reset</button>

@@ -17,7 +17,7 @@
         <?php include('Includes/Header.php'); ?>
     </header>
     <div class="header">
-        <h2>Today's Vaccine </h2>
+        <h4>Today's Vaccine </h4>
     </div>
 
     <table id="child">
@@ -58,14 +58,12 @@
         </tbody>
     </table>
 
-
-
-
-
     <footer class="footer">
         <?php include('Includes/Footer.html'); ?>
     </footer>
-
+    <script>
+		$(document).foundation();
+	</script>
 </body>
 
 </html>

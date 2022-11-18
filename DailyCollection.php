@@ -16,7 +16,7 @@
         <?php include('Includes/Header.php'); ?>
 </header>
 <div class="header">
-         <h2>Daily Collection</h2>
+         <h4>Daily Collection</h4>
 </div>
 
 

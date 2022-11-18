@@ -19,7 +19,7 @@
         ?>
     </header>
     <div class="header">
-        <h2>Child list</h2>
+        <h4>Child list</h4>
     </div>
     <table id="child">
         <thead>

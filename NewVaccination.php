@@ -2,9 +2,11 @@
 include_once 'Connect.php';
 include_once 'Utility.php';
 
-$appointment_id = $_GET['aid'];
+  $appointment_id = $_GET['aid'];
+
 require_once "./VaccinationCommon.php";
 require_once "./AppointmentCommon.php";
+$child_id=vaccination_common::fetch_child_id($appointment_id);
 $next_group_id = vaccination_common::next_vaccination_group_id($child_id);
 $vaccine_ids = vaccination_common::fetch_vaccine_ids($next_group_id);
 

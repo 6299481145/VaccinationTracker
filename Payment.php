@@ -16,7 +16,7 @@
         <?php include('Includes/Header.php'); ?>
 </header>
 <div class="header">
-         <h2>Cash Payment</h2>
+         <h4>Payment</h4>
 </div>
 
 
@@ -25,6 +25,8 @@
 <footer class="footer">
     <?php include('Includes/Footer.html'); ?>
 </footer>
-
+<script>
+		$(document).foundation();
+	</script>
 </body>
 </html>

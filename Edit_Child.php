@@ -1,4 +1,6 @@
 <?php
+global  $child_id,$first_name,$middle_name,$last_name, $parents_name,$gender,
+$dob,$village,$district,$state,$pincode,$contact_no,$email;
 $child_id = $_POST['child_id'];
 
 include 'Connect.php';
@@ -47,17 +49,19 @@ if (isset($_POST['submit'])) {
 <body>
 
   <header>
-    <?php include('Includes/header.php'); ?>
+    <?php include('Includes/Heading.html'); ?>
   </header>
   <div class="header">
     <h2>Edit Child</h2>
   </div>
 
   <form class=Child action="" method="POST">
-    <label for="child_id">Child Id / Parent's Name</label>
-    <div>
+  <div class="main-row">
+      <div class="main-column"> 
+  <label for="child_id">Child Id / Parent's Name</label>
+</div> </div>
       <input type="text" placeholder="Search.." name="child_id" id="child_id" value="<?= $child_id ?>"><button><i class="fa fa-search"></i></button>
-    </div>
+   
   </form>
   <form class=Child action="EditChildScript.php" method="POST">
     <input type="hidden" name="child_id" id="child_id" value="<?= $child_id ?>">

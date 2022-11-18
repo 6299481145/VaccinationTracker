@@ -15,16 +15,18 @@
 <body>
 
   <header>
-    <?php include('Includes/header.php'); ?>
+    <?php include('Includes/Heading.html'); ?>
   </header>
   <div class="header">
     <h2>Reschedule Appointment</h2>
   </div>
   <form class=Child action="EditChildScript.php">
-    <label for="child_id">Child Id / Parent's Name</label>
-    <div></div>
+  <div class="main-row">
+      <div class="main-column">  
+  <label for="child_id">Child Id / Parent's Name</label>
+</div></div>
     <input type="text" placeholder="Search.." name="child_id" id="child_id"><button type="search"><i class="fa fa-search"></i></button>
-    </div>
+    
     <div class="main-row">
       <div class="main-column">
         <label for="first_name">First Name</label>

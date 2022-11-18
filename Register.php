@@ -18,10 +18,10 @@
         <form  action="RegistrationScript.php" method="POST">
           <div class="row">
             <i class="fa fa-user"></i>
-            <input type="text" placeholder="Username or Email id" name="username" required>
+            <input type="text" placeholder="Username" name="username" required>
           </div>
           <div class="row">
-            <i class="fa fa-user"></i>
+          <i class="fa fa-envelope" aria-hidden="true"></i>
             <input type="text" placeholder="Email id" name="email" required>
           </div>
           <div class="row">
@@ -32,11 +32,10 @@
           <div class="row">
           <i class="fa fa-user"></i>
           <select name="type"  name="type" required>
-            <option value="">User Type</option>
+            <option value="">Select user type</option>
               <option value="parent">Parent</option>
             </select>
           </div>
-          <div class="pass"><a href="#">Forgot password?</a></div>
           <div class="row button">
             <input type="submit" value="Submit">
           </div>

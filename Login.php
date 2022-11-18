@@ -33,7 +33,7 @@
                 <option value="staff">Staff</option>
             </select>
           </div>
-          <div class="pass"><a href="#">Forgot password?</a></div>
+          <div class="pass"><a href="ForgetPass.php">Forgot password?</a></div>
           <div class="row button">
             <input type="submit" value="Login">
           </div>

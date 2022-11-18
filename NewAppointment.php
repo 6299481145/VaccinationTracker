@@ -1,6 +1,11 @@
 <?php
-$child_id = $_POST['child_id'];
+global $first_name,$middle_name,$last_name, $parents_name,$gender,
+$dob,$village,$district,$state,$pincode,$contact_no,$email;
 
+$child_id=null;
+if(isset($_POST['search'])) {
+  $child_id = $_POST['child_id'];
+}
 include_once 'Connect.php';
 include_once 'Utility.php';
 
@@ -51,13 +56,17 @@ if ($result->num_rows > 0) {
     <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
-    <h2>New Appointment</h2>
+    <h4>New Appointment</h4>
   </div>
-  <form class=Child action="" method="POST">
+  <form action="" method="POST">
+  <div class="main-row">
+      <div class="main-column">
     <label for="child_id">Child Id / Parent's Name</label>
-    <div>
-      <input type="text" placeholder="Search.." name="child_id" id="child_id" value="<?= $child_id ?>"><button><i class="fa fa-search"></i></button> 
     </div>
+    </div>
+    
+      <input type="text" placeholder="Search.." name="child_id" id="child_id" value="<?= $child_id ?>"><button name="search"><i class="fa fa-search"></i></button> 
+   
   </form>
   <form action="./NewAppointmentScript.php" method="POST">
     <input type="hidden" name="child_id" id="child_id" value="<?= $child_id ?>">
@@ -95,7 +104,7 @@ if ($result->num_rows > 0) {
         <input type="date" name="dob" id="dob" value="<?= $dob ?>">
       </div>
     </div>
-    <hr>
+  
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
@@ -136,7 +145,7 @@ if ($result->num_rows > 0) {
         <input type="text" name="email" id="email" value="<?= $email ?>">
       </div>
     </div>
-    <hr>
+    
     <div class="main-row">
       <div class="main-column">
         <label for="">Appointment Date</label>
@@ -152,8 +161,6 @@ if ($result->num_rows > 0) {
         <?php
         foreach($vaccine_ids as $vid)
         {
-
-        
         ?>
         <label for=""><?= vaccination_common::fetch_vaccine_name($vid[0]); ?></label><br>
         <?php
@@ -161,7 +168,7 @@ if ($result->num_rows > 0) {
         ?>
       </div>
     </div>
-    <hr>
+    
     <button type="submit">Submit</button>
     <button type="reset">Reset</button>
   </form>
@@ -175,7 +182,9 @@ if ($result->num_rows > 0) {
     // document.getElementById("currentTime").value = time;
     // document.getElementById("currentDate").value = today;
   </script>
-
+<script>
+		$(document).foundation();
+	</script>
 </body>
 
 </html>

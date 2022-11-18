@@ -1,5 +1,12 @@
 <?php
-$staff_id = $_POST['staff_id'];
+global $first_name,$middle_name,$last_name, $parents_name,$gender,
+$dob,$village,$district,$state,$pincode,$contact_no,$email;
+
+$staff_id = null;
+
+if(isset($_POST['search'])) {
+  $staff_id = $_POST['staff_id']; 
+}
 
 include 'Connect.php';
 include 'Utility.php';
@@ -28,7 +35,7 @@ if ($result->num_rows > 0) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="design.css">
+ 
   <link rel="shortcut icon" href="Image/vac.png" type="image/x-icon">
   <title>VAT 1.0</title>
 </head>
@@ -40,16 +47,20 @@ if ($result->num_rows > 0) {
     <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
-    <h2>Edit Staff</h2>
+    <h4>Edit Staff</h4>
   </div>
 
-  <form class=staff action="" method="POST">
-    <label for="staff_id">Staff Id / Contact No</label>
-    <div>
-      <input type="text" placeholder="Search.." name="staff_id" id="staff_id"><button type="search"><i class="fa fa-search"></i></button>
-    </div>
+  <form  action="" method="POST">
+  <div class="main-row">
+      <div class="main-column">  
+  <label for="staff_id">Staff Id / Contact No</label>
+  </div> 
+</div>
+<div>
+      <input type="text" placeholder="Search.." name="staff_id" id="staff_id" value="<?= $staff_id ?>"><button name="search"><i class="fa fa-search"></i></button>
+      </div>
   </form>
-  <form class=Staff action="EditStaffScript.php" method="POST">
+  <form  action="EditStaffScript.php" method="POST">
     <input type="hidden" name="staff_id" id="staff_id" value="<?= $staff_id ?>">
     <div class="main-row">
       <div class="main-column">
@@ -81,6 +92,7 @@ if ($result->num_rows > 0) {
       <input type="date" name="dob" id="dob" value="<?= $dob ?>">
     </div>
     </div>
+    
     </div>
 
     <div class="main-row">
@@ -122,7 +134,7 @@ if ($result->num_rows > 0) {
         <input type="text" name="email" id="email" value="<?= $email ?>">
       </div>
     </div>
-    <hr>
+    
     <button type="submit" name="submit">Submit</button>
     <button name="delete">Delete</button>
   </form>
@@ -131,7 +143,9 @@ if ($result->num_rows > 0) {
   <footer class="footer">
     <?php include('Includes/Footer.html'); ?>
   </footer>
-
+  <script>
+		$(document).foundation();
+	</script>
 </body>
 
 </html>

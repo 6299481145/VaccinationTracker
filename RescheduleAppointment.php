@@ -1,5 +1,11 @@
 <?php
-$appointment_id = $_POST['appointment_id'];
+global $child_id,$first_name,$middle_name,$last_name, $parents_name,$gender,
+$dob,$village,$district,$state,$pincode,$contact_no,$email,$vaccination_date,$vaccination_time ;
+
+$appointment_id=null;
+if(isset($_POST['search'])) {
+  $appointment_id = $_POST['appointment_id'];
+}
 include_once 'Connect.php';
 include_once 'Utility.php';
 
@@ -49,7 +55,7 @@ if ($result->num_rows > 0) {
   <title>VAT 1.0</title>
 
 </head>
-
+<!-- <button type="search"style=' background-color: rgb(0, 139, 139);border-radius: 10px'><i class="fa fa-search" ></i></button> -->
 
 <body>
 
@@ -57,12 +63,16 @@ if ($result->num_rows > 0) {
     <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
-    <h2>Reschedule Appointment</h2>
+    <h4>Reschedule Appointment</h4>
   </div>
   <form action="" method="POST">
+  <div class="main-row">
+      <div class="main-column">
     <label for="appointment_id">Appointment Id</label>
+    </div>
+    </div>
     <div>
-      <input type="text" placeholder="Search.." name="appointment_id" id="child_id" value="<?= $appointment_id ?>"><button><i class="fa fa-search"></i></button>
+      <input type="text" placeholder="Search.." name="appointment_id" id="child_id" value="<?= $appointment_id ?>"><button name="search"><i class="fa fa-search"></i></button>
     </div>
   </form>
   
@@ -102,7 +112,7 @@ if ($result->num_rows > 0) {
         <input type="date" name="dob" id="dob" value="<?= $dob ?>">
       </div>
     </div>
-    <hr>
+    
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
@@ -144,7 +154,7 @@ if ($result->num_rows > 0) {
         <input type="text" name="email" id="email" value="<?= $email ?>">
       </div>
     </div>
-    <hr>
+    
     <div class="main-row">
       <div class="main-column">
         <label for="">Appointment Date</label>
@@ -167,7 +177,7 @@ if ($result->num_rows > 0) {
    </div>
     </div>
 
-    <hr>
+  
     <button type="submit">Submit</button>
     <button type="Reset">Reset</button>
 
@@ -176,7 +186,9 @@ if ($result->num_rows > 0) {
     <footer class="footer">
       <?php include('Includes/Footer.html'); ?>
     </footer>
-
+    <script>
+		$(document).foundation();
+	</script>
 </body>
 
 </html>

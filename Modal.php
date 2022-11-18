@@ -1,8 +1,8 @@
 <?php
 if (isset($_POST['click_me'])) {
   require "Utility.php";
-  $header = "Verifying Session!";
-  $body = "Data Update Successfully!";
+  $header = "VAT";
+  $body = "Child registration Successfully!";
   message::show_modal($header, $body);
 }
 ?>

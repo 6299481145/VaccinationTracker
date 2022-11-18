@@ -55,6 +55,18 @@ class vaccination_common
             return -1;
         } 
     }
+    static function fetch_child_id($appointment_id){
+        require_once "./Connect.php";
+        $conn = new mysqli('localhost', 'neha', 'Neha@629', 'vaccination_tracker');
+         $sql="SELECT child_id FROM appointment WHERE appointment_id ='$appointment_id'"; 
+         $result = $conn->query($sql);
+         if ($result->num_rows > 0) {
+             $row = $result->fetch_array();
+             return $row[0];
+         } else {
+             return -1;
+         } 
+    }
 }
 
 

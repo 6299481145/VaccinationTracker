@@ -17,7 +17,7 @@ include 'Utility.php';
 <body>
 
   <header>
-    <?php include('Includes/header.php'); ?>
+    <?php include('Includes/Heading.html'); ?>
   </header>
   <div class="header">
     <h2>Child Registration</h2>

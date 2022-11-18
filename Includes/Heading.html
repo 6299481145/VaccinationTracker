@@ -12,17 +12,17 @@
     <title>VAT 1.o</title>
   </head>
   <body>
-    <div class="navbar">
-      <a href="dashboard.php"><b>VAT</b></a>
-      <div class="navbar-right">
+    <div class="navbar" id="mynavbar">
+      <a href="ParentDashboard.php"class="active"><b>VAT</b></a>
+     
       <div class="dropdown">
         <button class="dropbtn">
           Children
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="NewChild.php">Register Child</a>
-          <a href="EditChild.php">Edit Child Record</a>
+          <a href="New_Child.php">Register Child</a>
+          <a href="Edit_Child.php">Edit Child Record</a>
         </div>
       </div>
       <div class="dropdown">
@@ -31,12 +31,26 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="NewAppointment.php">New Appointment</a>
-          <a href="RescheduleAppointment.php">Reschedule Appointment</a>
-          <a href="CancelAppointment.php">Cancel Appointment</a>
+          <a href="New_Appointment.php">New Appointment</a>
+          <a href="Reschedule_Appointment.php">Reschedule Appointment</a>
+          <a href="Cancel_Appointment.php">Cancel Appointment</a>
         </div>
-     </div>
+      </div>
+     <a href="javascript:void(0);" class="icon" onclick="navfun()">&#9776;</a>
+     <div class="navbar-right">
      <a href="Logout.php">Logout</a>
     </div>
+  
+    <script>
+      function navfun() {
+        var x = document.getElementById("mynavbar");
+        if (x.className === "navbar") {
+          x.className += " responsive";
+        } else {
+          x.className = "navbar";
+        }
+      }
+      </script>
+      
   </body>
 </html>

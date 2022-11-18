@@ -1,4 +1,7 @@
 <?php
+
+global $state,$count;
+
 class Utility
 {
   public static function js_alert($message)
@@ -115,19 +118,19 @@ class APPOINTMENTID
 }
 
 
-function fetch_state()
-{
-  include 'Connect.php';
-  $sql = "SELECT state FROM state";
-  $result = $con->query($sql);
-  echo '<select name="state" id="state">';
-  while ($row = $result->fetch_array()) {
-    $state = $row[0];
-    echo '<option value="' . $state . '">' . $state . '</option>';
-  }
-  echo '</select>';
-  $con->close();
-}
+// function fetch_state()
+// {
+//   include 'Connect.php';
+//   $sql = "SELECT state FROM state";
+//   $result = $con->query($sql);
+//   echo '<select name="state" id="state">';
+//   while ($row = $result->fetch_array()) {
+//     $state = $row[0];
+//     echo '<option value="' . $state . '">' . $state . '</option>';
+//   }
+//   echo '</select>';
+//   $con->close();
+// }
 function fetch_existing_state($p_state)
 {
   include 'Connect.php';
@@ -145,7 +148,20 @@ function fetch_existing_state($p_state)
   echo '</select>';
   $con->close();
 }
-//echo $p_state;
+function count_register_child()
+{
+  require_once 'Connect.php';
+  $count=0;
+  $sql = "SELECT COUNT('child_id') FROM child";
+  $result = $con->query($sql);
+  if ($result->num_rows > 0)  {
+    $row = $result->fetch_array();
+    $count = $row[0];
+    $con->close();
+   echo "$count";
+  }
+}
+
 
 class message
 {

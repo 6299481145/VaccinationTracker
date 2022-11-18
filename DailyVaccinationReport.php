@@ -16,7 +16,7 @@
         <?php include('Includes/Header.php'); ?>
 </header>
 <div class="header">
-         <h2>Daily Vaccination Report</h2>
+         <h4>Daily Vaccination Report</h4>
 </div>
 
 
