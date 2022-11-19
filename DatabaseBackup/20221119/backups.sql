@@ -45,6 +45,7 @@ CREATE TABLE `appointment` (
 
 LOCK TABLES `appointment` WRITE;
 /*!40000 ALTER TABLE `appointment` DISABLE KEYS */;
+INSERT INTO `appointment` VALUES ('A001','CH001','2022-11-17','17:37:00','2022-11-18','17:37:00','U001',NULL);
 /*!40000 ALTER TABLE `appointment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,7 +81,7 @@ CREATE TABLE `child` (
 
 LOCK TABLES `child` WRITE;
 /*!40000 ALTER TABLE `child` DISABLE KEYS */;
-INSERT INTO `child` VALUES ('CH001','Kumari','Annu','Priya','Radeshyam Paswan','Female','2018-01-02','Motipur','Muzaffarpur','Bihar','843113','8954231237','annu0201@gmai.com');
+INSERT INTO `child` VALUES ('CH001','Kumari','Annu','Priya','Radeshyam Paswan','Female','2018-01-02','Motipur','Muzaffarpur','Bihar','843113','8954231237','annu0201@gmai.com'),('CH002','Anjali','','Kumari','Rajesh Chaudhary','Female','2022-02-03','Hajipur','Vaishali','Bihar','841332','9845362718','ak9834@gmail.com');
 /*!40000 ALTER TABLE `child` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,6 +143,7 @@ CREATE TABLE `staff` (
 
 LOCK TABLES `staff` WRITE;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
+INSERT INTO `staff` VALUES ('ST001','Anjali','','Kumari','Female','2022-02-13','Hajipur','Muzaffarpur','Bihar','841332','9845362718','ak9834@gmail.com');
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,7 +190,7 @@ CREATE TABLE `vaccination` (
   CONSTRAINT `vaccination_ibfk_1` FOREIGN KEY (`appointment_id`) REFERENCES `appointment` (`appointment_id`),
   CONSTRAINT `vaccination_ibfk_2` FOREIGN KEY (`vaccine_id`) REFERENCES `vaccination_chart` (`vaccine_id`),
   CONSTRAINT `vaccination_ibfk_3` FOREIGN KEY (`child_id`) REFERENCES `child` (`child_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -197,6 +199,7 @@ CREATE TABLE `vaccination` (
 
 LOCK TABLES `vaccination` WRITE;
 /*!40000 ALTER TABLE `vaccination` DISABLE KEYS */;
+INSERT INTO `vaccination` VALUES ('A001',1,NULL,'CH001',NULL,'2022-11-17');
 /*!40000 ALTER TABLE `vaccination` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -251,6 +254,7 @@ CREATE TABLE `vaccine` (
 
 LOCK TABLES `vaccine` WRITE;
 /*!40000 ALTER TABLE `vaccine` DISABLE KEYS */;
+INSERT INTO `vaccine` VALUES (1,1),(1,2),(1,3);
 /*!40000 ALTER TABLE `vaccine` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -263,4 +267,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-09 13:35:46
+-- Dump completed on 2022-11-19 16:37:47
