@@ -12,6 +12,7 @@
 <header>
         <?php include('Includes/Heading.html'); ?>
     </header>
+    <img src="Image/v.jpg" alt=" " class="image">
     <footer class="footer">
     <?php
     include('Includes/Footer.html'); ?>
