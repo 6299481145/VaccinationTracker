@@ -1,3 +1,48 @@
+<?php
+global $child_id,$first_name,$middle_name,$last_name, $parents_name,$gender,
+$dob,$village,$district,$state,$pincode,$contact_no,$email,$date,$time ;
+
+$appointment_id=null;
+if(isset($_POST['search'])) {
+  $appointment_id = $_POST['appointment_id'];
+}
+include_once 'Connect.php';
+include_once 'Utility.php';
+
+require_once "./VaccinationCommon.php";
+require_once "./AppointmentCommon.php";
+$next_group_id = vaccination_common::next_vaccination_group_id($child_id);
+$vaccine_ids = vaccination_common::fetch_vaccine_ids($next_group_id);
+
+$sql = "SELECT * FROM appointment WHERE appointment_id='$appointment_id'";
+$result = $con->query($sql);
+
+if ($result->num_rows > 0) {
+
+  $row = $result->fetch_assoc();
+  $child_id = $row['child_id'];
+  $date = $row['date'];
+  $time = $row['time'];
+  $sql = "SELECT * FROM child WHERE child_id='$child_id'";
+  $result_child = $con->query($sql);
+  if ($result_child->num_rows > 0) {
+    $row_child = $result_child->fetch_assoc();
+    $first_name = $row_child['first_name'];
+    $middle_name = $row_child['middle_name'];
+    $last_name = $row_child['last_name'];
+    $parents_name = $row_child['parents_name'];
+    $gender = $row_child['gender'];
+    $dob = $row_child['dob'];
+    $village = $row_child['village'];
+    $district = $row_child['district'];
+    $state = $row_child['state'];
+    $pincode = $row_child['pincode'];
+    $contact_no = $row_child['contact_no'];
+    $email = $row_child['email'];
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +55,7 @@
   <title>VAT 1.0</title>
 
 </head>
-
+<!-- <button type="search"style=' background-color: rgb(0, 139, 139);border-radius: 10px'><i class="fa fa-search" ></i></button> -->
 
 <body>
 
@@ -20,78 +65,77 @@
   <div class="header">
     <h2>Reschedule Appointment</h2>
   </div>
-  <form class=Child action="EditChildScript.php">
+  <form action="" method="POST">
   <div class="main-row">
-      <div class="main-column">  
-  <label for="child_id">Child Id / Parent's Name</label>
-</div></div>
-    <input type="text" placeholder="Search.." name="child_id" id="child_id"><button type="search"><i class="fa fa-search"></i></button>
-    
+      <div class="main-column">
+    <label for="appointment_id">Appointment Id</label>
+    </div>
+    </div>
+    <div>
+      <input type="text" placeholder="Search.." name="appointment_id" id="child_id" value="<?= $appointment_id ?>"><button name="search"><i class="fa fa-search"></i></button>
+    </div>
+  </form>
+  
+  <form action="./RescheduleAppointmentScript.php" method="POST">
+    <input type="hidden" name="appointment_id" id="appointment_id" value="<?= $appointment_id ?>">
     <div class="main-row">
       <div class="main-column">
         <label for="first_name">First Name</label>
-        <input type="text" name="first_name" id="first_name">
+        <input type="text" name="first_name" id="first_name" value="<?= $first_name ?>" readonly>
       </div>
       <div class="main-column">
         <label for="middle_name">Middle Name</label>
-        <input type="text" name="middle_name" id="middle_name">
+        <input type="text" name="middle_name" id="middle_name" value="<?= $middle_name ?>" readonly>
       </div>
       <div class="main-column">
         <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" id="last_name">
+        <input type="text" name="last_name" id="last_name" value="<?= $last_name ?>" readonly>
       </div>
     </div>
     <div class="main-row">
       <div class="main-column">
         <label for="Famo_name">Parant's Name</label>
-        <input type="text" name="famo_name" id="famo_name">
+        <input type="text" name="famo_name" id="famo_name" value="<?= $parents_name ?>" readonly>
       </div>
       <div class="main-column">
         <label for="gender">Gender</label>
         <div>
-          <select name="gender" id="gender">
+          <select name="gender" id="gender" disabled>
             <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+            <option value="male" <?php if ($gender == 'Male') echo 'Selected'; ?>>Male</option>
+            <option value="female" <?php if ($gender == 'Female') echo 'Selected'; ?>>Female</option>
           </select>
         </div>
       </div>
       <div class="main-column">
         <label for="dob">Date of Birth</label>
-        <input type="date" name="dob" id="dob">
+        <input type="date" name="dob" id="dob" value="<?= $dob ?>" readonly>
       </div>
     </div>
-    <hr>
+    
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
-        <input type="text" name="village" id="village">
+        <input type="text" name="village" id="village" value="<?= $village ?>" readonly>
       </div>
       <div class="main-column">
         <label for="district">District</label>
         <div>
-          <select name="district" id="district">
+          <select name="district" id="district" disabled>
             <option value="">Select</option>
-            <option value="">Muzaffarpur</option>
-            <option value="">Vaishali</option>
-            <option value="">Sitamarhi</option>
-            <option value="">Saran</option>
-            <option value="">Sivan</option>
-            <option value="">West champaran</option>
+            <option value="Muzaffarpur" <?php if ($district == 'Muzaffarpur') echo 'Selected'; ?>>Muzaffarpur</option>
+            <option value="Vaishali" <?php if ($district == 'Vaishali') echo 'Selected'; ?>>Vaishali</option>
+            <option value="Sitamarhi" <?php if ($district == 'Sitamarhi') echo 'Selected'; ?>>Sitamarhi</option>
+            <option value="Saran" <?php if ($district == 'Saran') echo 'Selected'; ?>>Saran</option>
+            <option value="Sivan" <?php if ($district == 'Sivan') echo 'Selected'; ?>>Sivan</option>
+            <option value="West champaran" <?php if ($district == 'West champaran') echo 'Selected'; ?>>West champaran</option>
           </select>
         </div>
       </div>
       <div class="main-column">
         <label for="state">State</label>
         <div>
-          <select name="state" id="state">
-            <option value="">Select</option>
-            <option value="bihar">Bihar</option>
-            <option value="haryana">Haryana</option>
-            <option value="maharashtra">Maharashtra</option>
-            <option value="up">Uttar Pradesh</option>
-            <option value="panjab">Panjab</option>
-          </select>
+          <?php fetch_existing_state($state); ?>
         </div>
       </div>
     </div>
@@ -99,39 +143,50 @@
     <div class="main-row">
       <div class="main-column">
         <label for="pincode">Pincode</label>
-        <input type="text" name="pincode" id="pincode">
+        <input type="text" name="pincode" id="pincode" value="<?= $pincode ?>" readonly>
       </div>
       <div class="main-column">
         <label for="contact_no">Contact No</label>
-        <input type="text" name="contact_no" id="contact_no">
+        <input type="text" name="contact_no" id="contact_no" value="<?= $contact_no ?>" readonly>
       </div>
       <div class="main-column">
         <label for="email">Email</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" value="<?= $email ?>" readonly>
       </div>
     </div>
-    <hr>
+    
     <div class="main-row">
       <div class="main-column">
-        <label for="">Appointment Date</label>
-        <input type="date">
+        <label for="appointment_date">Appointment Date</label>
+        <input type="date" name="appointment_date" value="<?= $date ?>">
       </div>
       <div class="main-column">
-        <label for="">Appointment Time</label>
-        <input type="time" id="time" min="09:00" max="18:00" required>
+        <label for="appointment_time">Appointment Time</label>
+        <input type="time" name="appointment_time" id="time" min="09:00" max="18:00" value="<?= $time ?>" required>
       </div>
+    
+    <div class="main-column">
+      <label for=""><b>Vaccines</b></label>
+      <div></div>
+      <?php
+      foreach ($vaccine_ids as $vid) {
+      ?>
+        <label for=""> <?= vaccination_common::fetch_vaccine_name($vid[0]); ?></label><br>
+      <?php
+      }
+      ?>
+   </div>
     </div>
-
-    <hr>
-    <button type="submit">Submit</button>
-    <button type="reset">Reset</button>
-
-
+    
+    <button type="submit" name="submit">Submit</button>
+    <button type="Reset">Reset</button>
 
     <footer class="footer">
       <?php include('Includes/Footer.html'); ?>
     </footer>
-
+   
+    <script>
+		$(document).foundation();
+	</script>
 </body>
-
 </html>

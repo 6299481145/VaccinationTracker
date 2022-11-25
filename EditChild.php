@@ -3,7 +3,6 @@
 $dob,$village,$district,$state,$pincode,$contact_no,$email;
 
 $child_id = null;
-
 if(isset($_POST['search'])) {
   $child_id = $_POST['child_id'];
 }
@@ -113,7 +112,7 @@ if ($result->num_rows > 0) {
           <select name="district" id="district">
             <option value="">Select</option>
             <option value="Muzaffarpur" <?php if ($district == 'Muzaffarpur') echo 'Selected'; ?>>Muzaffarpur</option>
-            <option value="Vaishali">Vaishali</option>
+            <option value="Vaishali"<?php if ($district == 'Vaishali') echo 'Selected'; ?>>Vaishali</option>
             <option value="Sitamarhi">Sitamarhi</option>
             <option value="Saran">Saran</option>
             <option value="Sivan">Sivan</option>

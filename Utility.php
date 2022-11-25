@@ -161,8 +161,6 @@ function count_register_child()
    echo "$count";
   }
 }
-
-
 class message
 {
   public static function show_modal($header, $body)
@@ -189,5 +187,3 @@ class message
     </script>';
   }
 }
-
-

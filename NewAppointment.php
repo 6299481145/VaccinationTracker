@@ -73,26 +73,26 @@ if ($result->num_rows > 0) {
     <div class="main-row">
       <div class="main-column">
         <label for="first_name">First Name</label>
-        <input type="text" name="first_name" id="first_name" value="<?= $first_name ?>">
+        <input type="text" name="first_name" id="first_name" value="<?= $first_name ?>" readonly>
       </div>
       <div class="main-column">
         <label for="middle_name">Middle Name</label>
-        <input type="text" name="middle_name" id="middle_name" value="<?= $middle_name ?>">
+        <input type="text" name="middle_name" id="middle_name" value="<?= $middle_name ?>" readonly>
       </div>
       <div class="main-column">
         <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" id="last_name" value="<?= $last_name ?>">
+        <input type="text" name="last_name" id="last_name" value="<?= $last_name ?>" readonly>
       </div>
     </div>
     <div class="main-row">
       <div class="main-column">
         <label for="famo_name">Parents Name</label>
-        <input type="text" name="famo_name" id="famo_name" value="<?= $parents_name ?>">
+        <input type="text" name="famo_name" id="famo_name" value="<?= $parents_name ?>" readonly>
       </div>
       <div class="main-column">
         <label for="gender">Gender</label>
         <div>
-          <select name="gender" id="gender">
+          <select name="gender" id="gender" disabled>
             <option value="">Select</option>
             <option value="Male" <?php if ($gender == 'Male') echo 'Selected'; ?>>Male</option>
             <option value="Female" <?php if ($gender == 'Female') echo 'Selected'; ?>>Female</option>
@@ -101,26 +101,26 @@ if ($result->num_rows > 0) {
       </div>
       <div class="main-column">
         <label for="dob">Date of Birth</label>
-        <input type="date" name="dob" id="dob" value="<?= $dob ?>">
+        <input type="date" name="dob" id="dob" value="<?= $dob ?>" readonly>
       </div>
     </div>
   
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
-        <input type="text" name="village" id="village" value="<?= $village ?>">
+        <input type="text" name="village" id="village" value="<?= $village ?>" readonly>
       </div>
       <div class="main-column">
         <label for="district">District</label>
         <div>
-          <select name="district" id="district">
+          <select name="district" id="district" disabled>
             <option value="">Select</option>
             <option value="Muzaffarpur" <?php if ($district == 'Muzaffarpur') echo 'Selected'; ?>>Muzaffarpur</option>
-            <option value="Vaishali">Vaishali</option>
-            <option value="Sitamarhi">Sitamarhi</option>
-            <option value="Saran">Saran</option>
-            <option value="Sivan">Sivan</option>
-            <option value="West champaran">West champaran</option>
+            <option value="Vaishali"<?php if ($district == 'Vaishali') echo 'Selected'; ?>>Vaishali</option>
+            <option value="Sitamarhi"<?php if ($district == 'Sitamarhi') echo 'Selected'; ?>>Sitamarhi</option>
+            <option value="Saran"<?php if ($district == 'Saran') echo 'Selected'; ?>>Saran</option>
+            <option value="Sivan"<?php if ($district == 'Sivan') echo 'Selected'; ?>>Sivan</option>
+            <option value="West champaran"<?php if ($district == 'West champaran') echo 'Selected'; ?>>West champaran</option>
           </select>
         </div>
       </div>
@@ -134,15 +134,15 @@ if ($result->num_rows > 0) {
     <div class="main-row">
       <div class="main-column">
         <label for="pincode">Pincode</label>
-        <input type="text" name="pincode" id="pincode" value="<?= $pincode ?>">
+        <input type="text" name="pincode" id="pincode" value="<?= $pincode ?>" readonly>
       </div>
       <div class="main-column">
         <label for="contact_no">Contact No</label>
-        <input type="text" name="contact_no" id="contact_no" value="<?= $contact_no ?>">
+        <input type="text" name="contact_no" id="contact_no" value="<?= $contact_no ?>" readonly>
       </div>
       <div class="main-column">
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" value="<?= $email ?>">
+        <input type="text" name="email" id="email" value="<?= $email ?>" readonly>
       </div>
     </div>
     

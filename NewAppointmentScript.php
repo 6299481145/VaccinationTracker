@@ -16,7 +16,7 @@ $stat = $stmt->execute();
 if ($stat != false) {
     echo "Book Appointment Successfully!";
     echo "<br> Appointment Id is $appointment_id";
-    echo "<br><a href='NewAppointment.php'>Click here</> to go back!";
+    // echo "<br><a href='NewAppointment.php'>Click here</> to go back!";
 } else {
     echo $con->error;
 }

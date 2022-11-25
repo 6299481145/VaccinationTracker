@@ -1,6 +1,6 @@
 <?php
 global $child_id,$first_name,$middle_name,$last_name, $parents_name,$gender,
-$dob,$village,$district,$state,$pincode,$contact_no,$email,$vaccination_date,$vaccination_time ;
+$dob,$village,$district,$state,$pincode,$contact_no,$email,$date,$time ;
 
 $appointment_id=null;
 if(isset($_POST['search'])) {
@@ -21,8 +21,8 @@ if ($result->num_rows > 0) {
 
   $row = $result->fetch_assoc();
   $child_id = $row['child_id'];
-  $vaccination_date = $row['vaccination_date'];
-  $vaccination_time = $row['vaccination_time'];
+  $date = $row['date'];
+  $time = $row['time'];
   $sql = "SELECT * FROM child WHERE child_id='$child_id'";
   $result_child = $con->query($sql);
   if ($result_child->num_rows > 0) {
@@ -81,26 +81,26 @@ if ($result->num_rows > 0) {
     <div class="main-row">
       <div class="main-column">
         <label for="first_name">First Name</label>
-        <input type="text" name="first_name" id="first_name" value="<?= $first_name ?>">
+        <input type="text" name="first_name" id="first_name" value="<?= $first_name ?>" readonly>
       </div>
       <div class="main-column">
         <label for="middle_name">Middle Name</label>
-        <input type="text" name="middle_name" id="middle_name" value="<?= $middle_name ?>">
+        <input type="text" name="middle_name" id="middle_name" value="<?= $middle_name ?>" readonly>
       </div>
       <div class="main-column">
         <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" id="last_name" value="<?= $last_name ?>">
+        <input type="text" name="last_name" id="last_name" value="<?= $last_name ?>" readonly>
       </div>
     </div>
     <div class="main-row">
       <div class="main-column">
         <label for="Famo_name">Parant's Name</label>
-        <input type="text" name="famo_name" id="famo_name" value="<?= $parents_name ?>">
+        <input type="text" name="famo_name" id="famo_name" value="<?= $parents_name ?>" readonly>
       </div>
       <div class="main-column">
         <label for="gender">Gender</label>
         <div>
-          <select name="gender" id="gender">
+          <select name="gender" id="gender" disabled>
             <option value="">Select</option>
             <option value="male" <?php if ($gender == 'Male') echo 'Selected'; ?>>Male</option>
             <option value="female" <?php if ($gender == 'Female') echo 'Selected'; ?>>Female</option>
@@ -109,20 +109,20 @@ if ($result->num_rows > 0) {
       </div>
       <div class="main-column">
         <label for="dob">Date of Birth</label>
-        <input type="date" name="dob" id="dob" value="<?= $dob ?>">
+        <input type="date" name="dob" id="dob" value="<?= $dob ?>" readonly>
       </div>
     </div>
     
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
-        <input type="text" name="village" id="village" value="<?= $village ?>">
+        <input type="text" name="village" id="village" value="<?= $village ?>" readonly>
       </div>
       <div class="main-column">
         <label for="district">District</label>
         <div>
-          <select name="district" id="district">
-            <option value="Select">Select</option>
+          <select name="district" id="district" disabled>
+            <option value="">Select</option>
             <option value="Muzaffarpur" <?php if ($district == 'Muzaffarpur') echo 'Selected'; ?>>Muzaffarpur</option>
             <option value="Vaishali" <?php if ($district == 'Vaishali') echo 'Selected'; ?>>Vaishali</option>
             <option value="Sitamarhi" <?php if ($district == 'Sitamarhi') echo 'Selected'; ?>>Sitamarhi</option>
@@ -143,28 +143,29 @@ if ($result->num_rows > 0) {
     <div class="main-row">
       <div class="main-column">
         <label for="pincode">Pincode</label>
-        <input type="text" name="pincode" id="pincode" value="<?= $pincode ?>">
+        <input type="text" name="pincode" id="pincode" value="<?= $pincode ?>" readonly>
       </div>
       <div class="main-column">
         <label for="contact_no">Contact No</label>
-        <input type="text" name="contact_no" id="contact_no" value="<?= $contact_no ?>">
+        <input type="text" name="contact_no" id="contact_no" value="<?= $contact_no ?>" readonly>
       </div>
       <div class="main-column">
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" value="<?= $email ?>">
+        <input type="text" name="email" id="email" value="<?= $email ?>" readonly>
       </div>
     </div>
     
     <div class="main-row">
       <div class="main-column">
-        <label for="">Appointment Date</label>
-        <input type="date" name="appointment_date" value="<?= $vaccination_date ?>">
+        <label for="appointment_date">Appointment Date</label>
+        <input type="date" name="appointment_date" value="<?= $date ?>">
       </div>
       <div class="main-column">
-        <label for="">Appointment Time</label>
-        <input type="time" name="appointment_time" id="time" min="09:00" max="18:00" value="<?= $vaccination_time ?>" required>
+        <label for="appointment_time">Appointment Time</label>
+        <input type="time" name="appointment_time" id="time" min="09:00" max="18:00" value="<?= $time ?>" required>
       </div>
-      <div class="main-column">
+    
+    <div class="main-column">
       <label for=""><b>Vaccines</b></label>
       <div></div>
       <?php
@@ -176,19 +177,16 @@ if ($result->num_rows > 0) {
       ?>
    </div>
     </div>
-
-  
-    <button type="submit">Submit</button>
+    
+    <button type="submit" name="submit">Submit</button>
     <button type="Reset">Reset</button>
-
-
 
     <footer class="footer">
       <?php include('Includes/Footer.html'); ?>
     </footer>
+   
     <script>
 		$(document).foundation();
 	</script>
 </body>
-
 </html>

@@ -1,7 +1,11 @@
 <?php
-global  $child_id,$first_name,$middle_name,$last_name, $parents_name,$gender,
+ global $first_name,$middle_name,$last_name, $parents_name,$gender,
 $dob,$village,$district,$state,$pincode,$contact_no,$email;
-$child_id = $_POST['child_id'];
+
+$child_id = null;
+if(isset($_POST['search'])) {
+  $child_id = $_POST['child_id'];
+}
 
 include 'Connect.php';
 include 'Utility.php';
@@ -24,12 +28,6 @@ if ($result->num_rows > 0) {
   $email = $row['email'];
 }
 
-if (isset($_POST['submit'])) {
-  require "Utility.php";
-  $header = "Verifying Session!";
-  $body = "Data Update Successfully!";
-  message::show_modal($header, $body);
-}
 ?>
 
 <!DOCTYPE html>
@@ -39,31 +37,32 @@ if (isset($_POST['submit'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="design.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <link rel="shortcut icon" href="Image/vac.png" type="image/x-icon">
   <title>VAT 1.0</title>
 </head>
 
 
 <body>
-
-  <header>
+<header>
     <?php include('Includes/Heading.html'); ?>
+  
   </header>
   <div class="header">
     <h2>Edit Child</h2>
   </div>
-
-  <form class=Child action="" method="POST">
+  <form  action="" method="POST">
   <div class="main-row">
-      <div class="main-column"> 
-  <label for="child_id">Child Id / Parent's Name</label>
-</div> </div>
-      <input type="text" placeholder="Search.." name="child_id" id="child_id" value="<?= $child_id ?>"><button><i class="fa fa-search"></i></button>
-   
+      <div class="main-column">
+    <label for="child_id">Child Id / Parent's Name</label>
+    </div>
+    </div>
+    <div>
+      <input type="text" placeholder="Search.." name="child_id" id="child_id" value="<?= $child_id ?>"><button name="search"><i class="fa fa-search"></i></button>
+    </div>
+    
   </form>
-  <form class=Child action="EditChildScript.php" method="POST">
+  <form  action="EditChildScript.php" method="POST">
     <input type="hidden" name="child_id" id="child_id" value="<?= $child_id ?>">
     <div class="main-row">
       <div class="main-column">
@@ -79,11 +78,13 @@ if (isset($_POST['submit'])) {
         <input type="text" name="last_name" id="last_name" value="<?= $last_name ?>">
       </div>
     </div>
+    
     <div class="main-row">
       <div class="main-column">
         <label for="famo_name">Parents Name</label>
         <input type="text" name="famo_name" id="famo_name" value="<?= $parents_name ?>">
       </div>
+      
       <div class="main-column">
         <label for="gender">Gender</label>
         <div>
@@ -99,7 +100,7 @@ if (isset($_POST['submit'])) {
         <input type="date" name="dob" id="dob" value="<?= $dob ?>">
       </div>
     </div>
-    <hr>
+    
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
@@ -108,10 +109,10 @@ if (isset($_POST['submit'])) {
       <div class="main-column">
         <label for="district">District</label>
         <div>
-          <select name="district" id="district">
+          <select name="district" id="district" >
             <option value="">Select</option>
             <option value="Muzaffarpur" <?php if ($district == 'Muzaffarpur') echo 'Selected'; ?>>Muzaffarpur</option>
-            <option value="Vaishali">Vaishali</option>
+            <option value="Vaishali"<?php if ($district == 'Vaishali') echo 'Selected'; ?>>Vaishali</option>
             <option value="Sitamarhi">Sitamarhi</option>
             <option value="Saran">Saran</option>
             <option value="Sivan">Sivan</option>
@@ -141,14 +142,19 @@ if (isset($_POST['submit'])) {
         <input type="text" name="email" id="email" value="<?= $email ?>">
       </div>
     </div>
-    <hr>
+    
+    
     <button type="submit" name="submit">Submit</button>
-   
+    <button name="delete">Delete</button>
   </form>
+  
   <footer class="footer">
     <?php include('Includes/Footer.html'); ?>
   </footer>
-
+  
+  <script>
+		$(document).foundation();
+	</script>
 </body>
 
 </html>

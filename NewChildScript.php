@@ -24,7 +24,7 @@ $stat = $stmt->execute();
 if ($stat != false) {
     echo "Data Inserted Successfully!";
     echo "<br> Child Id is $child_id";
-    echo "<br><a href='NewChild.php'>Click here</> to go back!";
+    // echo "<br><a href='NewChild.php'>Click here</> to go back!";
 } else {
     echo $con->error;
 }
