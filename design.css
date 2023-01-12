@@ -4,9 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
-
 }
- 
 .header {
   text-align: center;
   width: 100%;
@@ -18,7 +16,6 @@
   line-height: 30px;
   margin-bottom: 0px;
 }
-
  .footer {
   text-align: center;
   padding: 20px;
@@ -29,25 +26,11 @@
   color: whitesmoke;
   text-shadow: 1px 1px 3px black, 0 0 25px lightseagreen, 0 0 5px darkcyan;
 } 
-
 .image{
   width: 100%;
   height: 700px;
   border: 1px solid darkcyan;
 } 
-.almost-right{
-   margin-left: 1235px;
-  
-}
-.all-right{
-  margin-left: 1170px;
-}
-.center{
-  text-align: center;
-}
-.right{
-  text-align: right;
-}
  /*---------------------------------- Navigation bar controls ------------------------------- */
  .navbar { 
   margin: 0;
@@ -77,18 +60,14 @@
   background-color: rgb(8, 190, 181);
   color: whitesmoke;
 }
-
  .navbar .icon {
   display: none;
 } 
-
 .dropdown {
   float: left;
   overflow: hidden;
 }
-
 .dropdown .dropbtn {
-  
   border: none;
   outline: none;
   color:#f5f5f5;
@@ -99,7 +78,6 @@
   margin: 0;
 }
 .dropdown-content {
- 
   display: none;
   position: absolute;
   background-color:whitesmoke;
@@ -107,7 +85,6 @@
   box-shadow: 0px 8px 16px 0px lightgray;
   z-index: 1;
 }
-
 .dropdown-content a {
   float: none;
   color:lightseagreen;
@@ -115,7 +92,6 @@
   text-decoration: none;
   display: block;
   text-align: left;
- 
 }
 .navbar a:hover,
 .dropdown:hover .dropbtn {
@@ -124,11 +100,9 @@
 .dropdown-content a:hover {
   background-color: #ddd;
 }
-
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 @media screen and (max-width: 900px) {
   .navbar a:not(:first-child), .dropdown .dropbtn {
     display: none;
@@ -138,10 +112,8 @@
     display: block;
    font-size:20px ; 
    text-shadow: 1px 1px 2px black;
-   
   }
 }
-
 @media screen and (max-width: 900px) {
   .navbar.responsive {position:relative;}
  
@@ -167,18 +139,15 @@
   display: block;
   padding-top: 10px;
 } 
-
 /* ---------------------------------- Form and Form Controls ------------------------------- */
 .form {
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 3px;
 }
-
 .form input {
   padding: 3px;
 }
-
 .form label {
   width: 150px;
   margin: auto;
@@ -186,7 +155,6 @@
   margin-top: 15px;
   margin-left: 600px;
 }
-
 button {
   color: whitesmoke;
   padding: 10px;
@@ -251,7 +219,6 @@ input[type="password"],
 input[type="date"]:hover {
   color: black;
 }
-
 /* ---------------------------------- Controls for Child List page------------------------------- */
 #child {
   font-family: Arial, Helvetica, sans-serif;
@@ -259,7 +226,6 @@ input[type="date"]:hover {
   margin-top: 50px;
   width: 100%;
 }
-
 #child td,
 #child th {
   border: 2px solid #ddd;
@@ -268,7 +234,6 @@ input[type="date"]:hover {
 #child tr:hover {
   background-color: #ddd;
 }
-
 #child th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -277,7 +242,6 @@ input[type="date"]:hover {
   color: whitesmoke;
   text-shadow: 1px 1px 2px black, 0 0 25px rgb(32, 178, 170), 0 0 5px rgb(0, 139, 139);
   font-size: 17px;
- 
 }
 /* ---------------------------------- Controls for Receipt page------------------------------- */
 #bill{
@@ -295,7 +259,6 @@ input[type="date"]:hover {
 #bill td {
 text-align: center;
 }
-
 /* ---------------------------------- Controls for staff dashboard cards------------------------------- */
 .card {
   background-color: rgb(203, 227, 236);
@@ -307,7 +270,6 @@ text-align: center;
   text-align: center;
  
 }
-
 .cards {
   max-width: 1400px;
   padding: 20px;
@@ -322,12 +284,10 @@ text-align: center;
 @media (min-width: 900px) {
   .cards { grid-template-columns: repeat(3, 1fr); }
 }
-
 /* ---------------------------------- Controls for Child Registration form------------------------------ */
 * {
   box-sizing: border-box;
 }
-
 .main-column {
   margin-top: 15px;
   margin-left: 20px;
@@ -339,84 +299,34 @@ text-align: center;
  
   content: "";
   display: table;
-  clear: left;
-  
+  clear: left; 
 }
 .column {
   margin-top: 15px;
   margin-left: 20px;
   float: left;
   width: 45%;
-  padding: 10px;
-  
-}
-/* ---------------------------------- Controls for modal------------------------------ */
-
-.Modal-container {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.modal-content {
-  background-color: whitesmoke;
-  width: 40%;
-  margin: auto;
-  margin-top: 200px;
-  border: 2px solid black;
-}
-
-.modal-header {
-  background-color: darkcyan;
-  color: whitesmoke;
-  min-height: 50px;
-  font-size: 20px;
-  padding: 10px;
-  text-shadow: 1px 1px 5px black;
-}
-
-.modal-body {
-  min-height: 60px;
-  padding: 5px;
-  text-align: center;
-}
-
-.modal-footer {
-  padding: 5px;
-  text-align: center;
-  background-color: lightseagreen;
-
- 
+  padding: 10px; 
 }
 /*------------------------Ready-made Login Form------------------------------*/
-
-
 body{
   background:whitesmoke;
-  
 }
-
 ::selection{
   background:#008b8b;
 }
-
 .container{
   max-width: 440px;
   padding: 0 20px;
   margin: 170px auto;
   margin-top:90px;
 }
-
 .wrapper{
   width: 100%;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
 }
-
 .wrapper .title{
   height: 90px;
   background: #16a085;
@@ -428,17 +338,14 @@ body{
   align-items: center;
   justify-content: center;
 }
-
 .wrapper form{
   padding: 30px 25px 25px 25px;
 }
-
 .wrapper form .row{
   height: 45px;
   margin-bottom: 15px;
   position: relative;
 }
-
 .wrapper form .row input,.row select{
   height: 100%;
   width: 100%;
@@ -453,19 +360,15 @@ form .row input:focus,.row select:focus{
   border-color: #16a085;
   box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
 }
-
 form .row input::placeholder,select option{
   color: #999;
 }
-
 select.decorated option a:hover {
   box-shadow: 0 0 10px 100px lightseagreen inset ;
 }
-
 select option:hover {
     box-shadow: 0 0 10px 100px #000 inset;
 }
-
  .wrapper form .row i{
   position: absolute;
   width: 47px;
@@ -479,7 +382,6 @@ select option:hover {
   align-items: center;
   justify-content: center;
 } 
-
 .wrapper form .pass{
   margin: -8px 0 20px 0;
 }
@@ -491,7 +393,6 @@ select option:hover {
 .wrapper form .pass a:hover{
   text-decoration: underline;
 }
-
 .wrapper form .button input{
   color: #fff;
   font-size: 20px;
