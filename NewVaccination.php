@@ -1,11 +1,12 @@
 <?php
+global $first_name, $middle_name, $last_name, $parents_name, $gender,
+$dob, $village, $district, $state, $pincode, $contact_no, $email, $date, $time;
 include_once 'Connect.php';
 include_once 'Utility.php';
-
-  $appointment_id = $_GET['aid'];
-
 require_once "./VaccinationCommon.php";
-require_once "./AppointmentCommon.php";
+
+$appointment_id = $_GET['aid'];  
+
 $child_id=vaccination_common::fetch_child_id($appointment_id);
 $next_group_id = vaccination_common::next_vaccination_group_id($child_id);
 $vaccine_ids = vaccination_common::fetch_vaccine_ids($next_group_id);
@@ -14,12 +15,10 @@ $sql = "SELECT * FROM appointment WHERE appointment_id='$appointment_id'";
 $result = $con->query($sql);
 
 if ($result->num_rows > 0) {
-
   $row = $result->fetch_assoc();
   $child_id = $row['child_id'];
-
-  $vaccination_date = $row['vaccination_date'];
-  $vaccination_time = $row['vaccination_time'];
+  $date = $row['appointment_date'];
+  $time = $row['appointment_time'];
   $sql = "SELECT * FROM child WHERE child_id='$child_id'";
   $result_child = $con->query($sql);
   if ($result_child->num_rows > 0) {
@@ -55,9 +54,8 @@ if ($result->num_rows > 0) {
     <?php include_once "./Includes/Header.php"; ?>
   </header>
   <div class="header">
-    <h2>New vaccination</h2>
+    <h3>New vaccination</h3>
   </div>
-
   <form action="./NewVaccinationScript.php" method="POST">
     <input type="hidden" name="appointment_id" id="" value="<?= $appointment_id?>">
     <div class="main-row">
@@ -127,11 +125,11 @@ if ($result->num_rows > 0) {
     <div class="main-row">
       <div class="main-column">
         <label for="">Appointment Date</label>
-        <input type="text" id="appointment_date" name="appointment_date" value="<?= $vaccination_date ?>" readonly>
+        <input type="text" id="appointment_date" name="appointment_date" value="<?= $date ?>" readonly>
       </div>
       <div class="main-column">
         <label for="">Appointment Time</label>
-        <input type="text" id="appointment_time" name="appointment_time" value="<?= $vaccination_time ?>" readonly>
+        <input type="text" id="appointment_time" name="appointment_time" value="<?= $time ?>" readonly>
       </div>
     <div class="main-column">
       <label for=""><b>Vaccines</b></label>
@@ -143,13 +141,11 @@ if ($result->num_rows > 0) {
       <?php
       }
       ?>
+      <input type="hidden" name="vaccine_count" id="" value="<?= sizeof($vaccine_ids)?> ">
     </div>
     </div>
     <hr>
     <button type="submit">Submit</button>
-    
-
-
   </form>
   <footer class="footer">
     <?php include_once './Includes/Footer.html'; ?>

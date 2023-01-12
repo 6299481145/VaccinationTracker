@@ -1,6 +1,5 @@
 <?php
 include 'Utility.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,17 +11,16 @@ include 'Utility.php';
   <link rel="shortcut icon" href="Image/vac.png" type="image/x-icon">
   <title>VAT 1.0</title>
 </head>
-<body>
 
+<body>
   <header>
     <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
-    <h4>Child Registration</h4>
+    <h3>Child Registration</h3>
   </div>
   <form class=Child action="NewChildScript.php" method="POST">
-   
-  <div class="main-row">
+    <div class="main-row">
       <div class="main-column">
         <label class="required" for="first_name">First Name</label>
         <input type="text" name="first_name" id="first_name" required>
@@ -46,8 +44,8 @@ include 'Utility.php';
         <div>
           <select name="gender" id="gender" required>
             <option value="">Select</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
           </select>
         </div>
       </div>
@@ -56,7 +54,6 @@ include 'Utility.php';
         <input type="date" name="dob" id="dob" required>
       </div>
     </div>
- 
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
@@ -79,13 +76,10 @@ include 'Utility.php';
       <div class="main-column">
         <label for="state">State</label>
         <div>
-          <?php
-          
-           fetch_existing_state($state); ?>
+          <?php fetch_existing_state($state); ?>
         </div>
       </div>
     </div>
-
     <div class="main-row">
       <div class="main-column">
         <label for="pincode">Pincode</label>
@@ -93,26 +87,16 @@ include 'Utility.php';
       </div>
       <div class="main-column">
         <label for="contact_no">Contact No</label>
-        <input type="text" name="contact_no" id="contact_no" maxlength="10">
+        <input type="number" name="contact_no" id="contact_no" maxlength="10">
       </div>
       <div class="main-column">
         <label for="email">Email</label>
-        <input type="text" name="email" id="email">
+        <input type="email" name="email" id="email">
       </div>
     </div>
-    
     <button type="submit">Submit</button>
-
     <button type="reset">Reset</button>
-
-    
-    <footer class="footer">
-      <?php include('Includes/Footer.html'); ?>
-    </footer>
   </form>
-  <script>
-		$(document).foundation();
-	</script>
 </body>
 
 </html>

@@ -1,3 +1,6 @@
+<?php
+require_once "./VaccinationCommon.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,25 +13,24 @@
     <title>VAT 1.0</title>
 </head>
 
-
 <body>
-
     <header>
         <?php include('Includes/Header.php'); ?>
     </header>
     <div class="header">
-        <h4>Appointment List</h4>
+        <h3>Appointment List</h3>
     </div>
     <table id="child">
         <thead>
             <tr>
                 <th>Appointment Id</th>
-                <th>Child Id</th>
+                <th>Child Name</th>
                 <th>Date</th>
                 <th>Time</th>
-                <th>Vaccination Date</th>
-                <th>Vaccination Time</th>
+                <th>Appointment Date</th>
+                <th>Appointment Time</th>
                 <th>Check By</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -40,14 +42,14 @@
                 while ($row = $result->fetch_assoc()) {
             ?>
                     <tr>
-
                         <td><?= $row['appointment_id'] ?></td>
-                        <td><?= $row['child_id'] ?></td>
+                        <td> <?= vaccination_common::fetch_child_name($row['child_id']); ?></td>
                         <td><?= $row['date'] ?></td>
                         <td><?= $row['time'] ?></td>
-                        <td><?= $row['vaccination_date'] ?></td>
-                        <td><?= $row['vaccination_time'] ?></td>
-                        <td><?= $row['user_id'] ?></td>
+                        <td><?= $row['appointment_date'] ?></td>
+                        <td><?= $row['appointment_time'] ?></td>
+                        <td><?= vaccination_common::search_user($row['user_id']); ?></td>
+                        <td><?= $row['status'] ?></td>
                     </tr>
             <?php
                 }
@@ -55,13 +57,6 @@
             ?>
         </tbody>
     </table>
-
-
-
-    <footer class="footer">
-        <?php include('Includes/Footer.html'); ?>
-    </footer>
-
 </body>
 
 </html>

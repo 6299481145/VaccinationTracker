@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['click_me'])) {
-  require "Utility.php";
+  require "ModalUtility.php";
   $header = "VAT";
   $body = "Child registration Successfully!";
   message::show_modal($header, $body);

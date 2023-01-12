@@ -8,17 +8,13 @@ if(isset($_POST['search'])) {
 }
 include_once 'Connect.php';
 include_once 'Utility.php';
-
 require_once "./VaccinationCommon.php";
-require_once "./AppointmentCommon.php";
 $next_group_id = vaccination_common::next_vaccination_group_id($child_id);
 $vaccine_ids = vaccination_common::fetch_vaccine_ids($next_group_id);
 
 $sql = "SELECT * FROM appointment WHERE appointment_id='$appointment_id'";
 $result = $con->query($sql);
-
 if ($result->num_rows > 0) {
-
   $row = $result->fetch_assoc();
   $child_id = $row['child_id'];
   $vaccination_date = $row['vaccination_date'];
@@ -42,7 +38,6 @@ if ($result->num_rows > 0) {
   }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,15 +50,13 @@ if ($result->num_rows > 0) {
   <title>VAT 1.0</title>
 
 </head>
-<!-- <button type="search"style=' background-color: rgb(0, 139, 139);border-radius: 10px'><i class="fa fa-search" ></i></button> -->
 
 <body>
-
   <header>
-    <?php include('Includes/Heading.html'); ?>
+    <?php include('Includes/Heading.php'); ?>
   </header>
   <div class="header">
-    <h2>Cancel Appointment</h2>
+    <h3>Cancel Appointment</h3>
   </div>
   <form action="" method="POST">
   <div class="main-row">
@@ -75,7 +68,6 @@ if ($result->num_rows > 0) {
       <input type="text" placeholder="Search.." name="appointment_id" id="child_id" value="<?= $appointment_id ?>"><button name="search"><i class="fa fa-search"></i></button>
     </div>
   </form>
-  
   <form action="./CancelAppointmentScript.php" method="POST">
     <input type="hidden" name="appointment_id" id="appointment_id" value="<?= $appointment_id ?>">
     <div class="main-row">
@@ -112,7 +104,6 @@ if ($result->num_rows > 0) {
         <input type="date" name="dob" id="dob" value="<?= $dob ?>" readonly>
       </div>
     </div>
-    
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
@@ -139,7 +130,6 @@ if ($result->num_rows > 0) {
         </div>
       </div>
     </div>
-
     <div class="main-row">
       <div class="main-column">
         <label for="pincode">Pincode</label>
@@ -154,7 +144,6 @@ if ($result->num_rows > 0) {
         <input type="text" name="email" id="email" value="<?= $email ?>" readonly>
       </div>
     </div>
-    
     <div class="main-row">
       <div class="main-column">
         <label for="">Appointment Date</label>
@@ -164,8 +153,6 @@ if ($result->num_rows > 0) {
         <label for="">Appointment Time</label>
         <input type="time" name="appointment_time" id="time" min="09:00" max="18:00" value="<?= $vaccination_time ?>" >
       </div>
-     
-   
       <div class="main-column">
       <label for=""><b>Vaccines</b></label>
       <div></div>
@@ -178,15 +165,10 @@ if ($result->num_rows > 0) {
       ?>
    </div>
 </div>
-
     <button type="submit" name="submit">Cancel</button>
     <button type="Reset">Reset</button>
-
     <footer class="footer">
       <?php include('Includes/Footer.html'); ?>
     </footer>
-    <script>
-		$(document).foundation();
-	</script>
 </body>
 </html>

@@ -13,14 +13,12 @@ include 'Utility.php';
   <title>VAT 1.0</title>
 </head>
 
-
 <body>
-
   <header>
-    <?php include('Includes/Heading.html'); ?>
+    <?php include('Includes/Heading.php'); ?>
   </header>
   <div class="header">
-    <h2>Child Registration</h2>
+    <h3>Child Registration</h3>
   </div>
   <form class=Child action="NewChildScript.php" method="POST">
     <div class="main-row">
@@ -47,8 +45,8 @@ include 'Utility.php';
         <div>
           <select name="gender" id="gender" required>
             <option value="">Select</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
           </select>
         </div>
       </div>
@@ -84,7 +82,6 @@ include 'Utility.php';
         </div>
       </div>
     </div>
-
     <div class="main-row">
       <div class="main-column">
         <label for="pincode">Pincode</label>
@@ -101,13 +98,7 @@ include 'Utility.php';
     </div>
     <hr>
     <button type="submit">Submit</button>
-
     <button type="reset">Reset</button>
-
-
-    <footer class="footer">
-      <?php include('Includes/Footer.html'); ?>
-    </footer>
   </form>
 </body>
 

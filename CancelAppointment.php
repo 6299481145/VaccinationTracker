@@ -1,16 +1,14 @@
 <?php
-global $child_id,$first_name,$middle_name,$last_name, $parents_name,$gender,
-$dob,$village,$district,$state,$pincode,$contact_no,$email,$vaccination_date,$vaccination_time ;
+global $child_id, $first_name, $middle_name, $last_name, $parents_name, $gender,
+  $dob, $village, $district, $state, $pincode, $contact_no, $email, $date, $time;
 
-$appointment_id=null;
-if(isset($_POST['search'])) {
+$appointment_id = null;
+if (isset($_POST['search'])) {
   $appointment_id = $_POST['appointment_id'];
 }
 include_once 'Connect.php';
 include_once 'Utility.php';
-
 require_once "./VaccinationCommon.php";
-require_once "./AppointmentCommon.php";
 $next_group_id = vaccination_common::next_vaccination_group_id($child_id);
 $vaccine_ids = vaccination_common::fetch_vaccine_ids($next_group_id);
 
@@ -18,11 +16,10 @@ $sql = "SELECT * FROM appointment WHERE appointment_id='$appointment_id'";
 $result = $con->query($sql);
 
 if ($result->num_rows > 0) {
-
   $row = $result->fetch_assoc();
   $child_id = $row['child_id'];
-  $vaccination_date = $row['vaccination_date'];
-  $vaccination_time = $row['vaccination_time'];
+  $date = $row['appointment_date'];
+  $time = $row['appointment_time'];
   $sql = "SELECT * FROM child WHERE child_id='$child_id'";
   $result_child = $con->query($sql);
   if ($result_child->num_rows > 0) {
@@ -42,7 +39,6 @@ if ($result->num_rows > 0) {
   }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,27 +51,24 @@ if ($result->num_rows > 0) {
   <title>VAT 1.0</title>
 
 </head>
-<!-- <button type="search"style=' background-color: rgb(0, 139, 139);border-radius: 10px'><i class="fa fa-search" ></i></button> -->
 
 <body>
-
   <header>
     <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
-    <h4>Cancel Appointment</h4>
+    <h3>Cancel Appointment</h3>
   </div>
   <form action="" method="POST">
-  <div class="main-row">
+    <div class="main-row">
       <div class="main-column">
-    <label for="appointment_id">Appointment Id</label>
-    </div>
+        <label for="appointment_id">Appointment Id</label>
+      </div>
     </div>
     <div>
       <input type="text" placeholder="Search.." name="appointment_id" id="child_id" value="<?= $appointment_id ?>"><button name="search"><i class="fa fa-search"></i></button>
     </div>
   </form>
-  
   <form action="./CancelAppointmentScript.php" method="POST">
     <input type="hidden" name="appointment_id" id="appointment_id" value="<?= $appointment_id ?>">
     <div class="main-row">
@@ -112,7 +105,6 @@ if ($result->num_rows > 0) {
         <input type="date" name="dob" id="dob" value="<?= $dob ?>" readonly>
       </div>
     </div>
-    
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
@@ -139,7 +131,6 @@ if ($result->num_rows > 0) {
         </div>
       </div>
     </div>
-
     <div class="main-row">
       <div class="main-column">
         <label for="pincode">Pincode</label>
@@ -154,39 +145,32 @@ if ($result->num_rows > 0) {
         <input type="text" name="email" id="email" value="<?= $email ?>" readonly>
       </div>
     </div>
-    
     <div class="main-row">
       <div class="main-column">
         <label for="">Appointment Date</label>
-        <input type="date" name="appointment_date" value="<?= $vaccination_date ?>" >
+        <input type="date" name="appointment_date" value="<?= $date ?>">
       </div>
       <div class="main-column">
         <label for="">Appointment Time</label>
-        <input type="time" name="appointment_time" id="time" min="09:00" max="18:00" value="<?= $vaccination_time ?>" >
+        <input type="time" name="appointment_time" id="time" min="09:00" max="18:00" value="<?= $time ?>">
       </div>
-     
-   
       <div class="main-column">
-      <label for=""><b>Vaccines</b></label>
-      <div></div>
-      <?php
-      foreach ($vaccine_ids as $vid) {
-      ?>
-        <label for=""> <?= vaccination_common::fetch_vaccine_name($vid[0]); ?></label><br>
-      <?php
-      }
-      ?>
-   </div>
-</div>
-
+        <label for=""><b>Vaccines</b></label>
+        <div></div>
+        <?php
+        foreach ($vaccine_ids as $vid) {
+        ?>
+          <label for=""> <?= vaccination_common::fetch_vaccine_name($vid[0]); ?></label><br>
+        <?php
+        }
+        ?>
+      </div>
+    </div>
     <button type="submit" name="submit">Cancel</button>
     <button type="Reset">Reset</button>
-
     <footer class="footer">
       <?php include('Includes/Footer.html'); ?>
     </footer>
-    <script>
-		$(document).foundation();
-	</script>
 </body>
+
 </html>

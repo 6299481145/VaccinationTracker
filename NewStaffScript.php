@@ -21,7 +21,7 @@ $stmt->bind_param("ssssssssssss", $staff_id, $first_name, $middle_name, $last_na
 $stat = $stmt->execute();
 
 if ($stat != false) {
-    echo "Data Inserted Successfully!";
+    echo "Staff Registration Successful!";
     echo "<br> Staff Id is $staff_id";
     echo "<br><a href='NewStaff.php'>Click here</> to go back!";
 } else {

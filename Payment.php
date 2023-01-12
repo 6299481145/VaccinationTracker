@@ -1,5 +1,12 @@
+<?php
+global $child_id, $vaccine_id;
+
+include 'Utility.php';
+require_once "./VaccinationCommon.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,24 +16,46 @@
     <title>VAT 1.0</title>
 </head>
 
-
 <body>
 
-<header>
+    <header>
         <?php include('Includes/Header.php'); ?>
-</header>
-<div class="header">
-         <h4>Payment</h4>
-</div>
+    </header>
+    <div class="header">
+        <h3>Payment</h3>
+    </div>
+    <table id="child">
+        <thead>
+            <tr>
+                <th>Appointment Id</th>
+                <th>Child Name</th>
+                <th>Vaccination Date</th>
+                <th>Vaccination Time</th>
+                <th>Vaccine Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            include 'Connect.php';
+            $sql = "SELECT * FROM vaccination WHERE appointment_id='A006'";     //here $sql is of string type actual_date=CURDATE()
+            $result = $con->query($sql);          //here $result is of type mysqli_result
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+            ?>
+                    <tr>
+                        <td><a href="./Bill.php?aid=<?= $row['appointment_id'] ?>"><?= $row['appointment_id'] ?></a></td>
+                        <td> <?= vaccination_common::fetch_child_name($row['child_id']); ?></td>
+                        <td><?= $row['actual_date'] ?></td>
+                        <td><?= $row['actual_time'] ?></td>
+                        <td> <?= vaccination_common::search_vaccineid(json_encode($row['v_id'])); ?></td>
 
-
-
-
-<footer class="footer">
-    <?php include('Includes/Footer.html'); ?>
-</footer>
-<script>
-		$(document).foundation();
-	</script>
+                    </tr>
+            <?php
+                }
+            }
+            ?>
+        </tbody>
+    </table>
 </body>
+
 </html>

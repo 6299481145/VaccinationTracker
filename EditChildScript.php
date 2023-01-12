@@ -1,4 +1,5 @@
 <?php
+include 'Connect.php';
 $child_id = $_POST['child_id'];
 $first_name = $_POST['first_name'];
 $middle_name = $_POST['middle_name'];
@@ -13,22 +14,10 @@ $pincode = $_POST['pincode'];
 $contact_no = $_POST['contact_no'];
 $email = $_POST['email'];
 
-include 'Connect.php';
-
-// if (isset($_POST['submit'])) {
-//   require "Utility.php";
-//   $header = "Verifying Session!";
-//   $body = "Data Update Successfully!";
-//   message::show_modal($header, $body);
-// }
-
 if (isset($_POST['submit'])) {
-
   $sql = "UPDATE child SET first_name='$first_name', middle_name='$middle_name',last_name='$last_name', parents_name='$parents_name', gender='$gender',dob='$dob',village='$village',district='$district',state='$state', pincode='$pincode',contact_no='$contact_no',email='$email' WHERE child_id='$child_id'";
   if ($con->query($sql) == true) {
-
-   echo "Data Updated Successfully!";
-  
+    echo "Data Updated Successfully!";
   } else {
     echo $con->error;
   }

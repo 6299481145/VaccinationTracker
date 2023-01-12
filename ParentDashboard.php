@@ -10,12 +10,9 @@
 </head>
 <body>
 <header>
-        <?php include('Includes/Heading.html'); ?>
+        <?php include('Includes/Heading.php'); ?>
     </header>
     <img src="Image/v.jpg" alt=" " class="image">
-    <footer class="footer">
-    <?php
-    include('Includes/Footer.html'); ?>
-  </footer>
+    
 </body>
 </html>

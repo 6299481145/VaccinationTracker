@@ -1,16 +1,14 @@
 <?php
-global $child_id,$first_name,$middle_name,$last_name, $parents_name,$gender,
-$dob,$village,$district,$state,$pincode,$contact_no,$email,$date,$time ;
+global $child_id, $first_name, $middle_name, $last_name, $parents_name, $gender,
+  $dob, $village, $district, $state, $pincode, $contact_no, $email, $date, $time;
 
-$appointment_id=null;
-if(isset($_POST['search'])) {
+$appointment_id = null;
+if (isset($_POST['search'])) {
   $appointment_id = $_POST['appointment_id'];
 }
 include_once 'Connect.php';
 include_once 'Utility.php';
-
 require_once "./VaccinationCommon.php";
-require_once "./AppointmentCommon.php";
 $next_group_id = vaccination_common::next_vaccination_group_id($child_id);
 $vaccine_ids = vaccination_common::fetch_vaccine_ids($next_group_id);
 
@@ -42,7 +40,6 @@ if ($result->num_rows > 0) {
   }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,27 +52,24 @@ if ($result->num_rows > 0) {
   <title>VAT 1.0</title>
 
 </head>
-<!-- <button type="search"style=' background-color: rgb(0, 139, 139);border-radius: 10px'><i class="fa fa-search" ></i></button> -->
 
 <body>
-
   <header>
-    <?php include('Includes/Heading.html'); ?>
+    <?php include('Includes/Heading.php'); ?>
   </header>
   <div class="header">
-    <h2>Reschedule Appointment</h2>
+    <h3>Reschedule Appointment</h3>
   </div>
   <form action="" method="POST">
-  <div class="main-row">
+    <div class="main-row">
       <div class="main-column">
-    <label for="appointment_id">Appointment Id</label>
-    </div>
+        <label for="appointment_id">Appointment Id</label>
+      </div>
     </div>
     <div>
       <input type="text" placeholder="Search.." name="appointment_id" id="child_id" value="<?= $appointment_id ?>"><button name="search"><i class="fa fa-search"></i></button>
     </div>
   </form>
-  
   <form action="./RescheduleAppointmentScript.php" method="POST">
     <input type="hidden" name="appointment_id" id="appointment_id" value="<?= $appointment_id ?>">
     <div class="main-row">
@@ -112,7 +106,6 @@ if ($result->num_rows > 0) {
         <input type="date" name="dob" id="dob" value="<?= $dob ?>" readonly>
       </div>
     </div>
-    
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
@@ -139,7 +132,6 @@ if ($result->num_rows > 0) {
         </div>
       </div>
     </div>
-
     <div class="main-row">
       <div class="main-column">
         <label for="pincode">Pincode</label>
@@ -154,7 +146,6 @@ if ($result->num_rows > 0) {
         <input type="text" name="email" id="email" value="<?= $email ?>" readonly>
       </div>
     </div>
-    
     <div class="main-row">
       <div class="main-column">
         <label for="appointment_date">Appointment Date</label>
@@ -164,29 +155,23 @@ if ($result->num_rows > 0) {
         <label for="appointment_time">Appointment Time</label>
         <input type="time" name="appointment_time" id="time" min="09:00" max="18:00" value="<?= $time ?>" required>
       </div>
-    
-    <div class="main-column">
-      <label for=""><b>Vaccines</b></label>
-      <div></div>
-      <?php
-      foreach ($vaccine_ids as $vid) {
-      ?>
-        <label for=""> <?= vaccination_common::fetch_vaccine_name($vid[0]); ?></label><br>
-      <?php
-      }
-      ?>
-   </div>
+      <div class="main-column">
+        <label for=""><b>Vaccines</b></label>
+        <div></div>
+        <?php
+        foreach ($vaccine_ids as $vid) {
+        ?>
+          <label for=""> <?= vaccination_common::fetch_vaccine_name($vid[0]); ?></label><br>
+        <?php
+        }
+        ?>
+      </div>
     </div>
-    
     <button type="submit" name="submit">Submit</button>
     <button type="Reset">Reset</button>
-
     <footer class="footer">
       <?php include('Includes/Footer.html'); ?>
     </footer>
-   
-    <script>
-		$(document).foundation();
-	</script>
 </body>
+
 </html>

@@ -12,14 +12,13 @@
 </head>
 
 <body>
-
     <header>
         <?php
         include('Includes/Header.php');
         ?>
     </header>
     <div class="header">
-        <h4>Child list</h4>
+        <h3>Child list</h3>
     </div>
     <table id="child">
         <thead>
@@ -69,13 +68,6 @@
             ?>
         </tbody>
     </table>
-
-    <footer class="footer">
-        <?php include('Includes/Footer.html'); ?>
-    </footer>
-
-
 </body>
-
 
 </html>

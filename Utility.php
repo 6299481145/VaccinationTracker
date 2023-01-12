@@ -1,6 +1,5 @@
 <?php
-
-global $state,$count;
+global $state, $count;
 
 class Utility
 {
@@ -8,7 +7,6 @@ class Utility
   {
     echo "<script>alert('$message')</script>";
   }
-
   public static function generate_id()
   {
     include 'Connect.php';
@@ -29,12 +27,10 @@ class Utility
     } else {
       $child_id = 'CH001';
     }
-
     return $child_id;
     $con->close();
   }
 }
-
 class ID
 {
   public static function generatestaff_id()
@@ -57,7 +53,6 @@ class ID
     } else {
       $staff_id = 'ST001';
     }
-
     return $staff_id;
     $con->close();
   }
@@ -84,7 +79,6 @@ class USERID
     } else {
       $user_id = 'U001';
     }
-
     return $user_id;
     $con->close();
   }
@@ -117,20 +111,6 @@ class APPOINTMENTID
   }
 }
 
-
-// function fetch_state()
-// {
-//   include 'Connect.php';
-//   $sql = "SELECT state FROM state";
-//   $result = $con->query($sql);
-//   echo '<select name="state" id="state">';
-//   while ($row = $result->fetch_array()) {
-//     $state = $row[0];
-//     echo '<option value="' . $state . '">' . $state . '</option>';
-//   }
-//   echo '</select>';
-//   $con->close();
-// }
 function fetch_existing_state($p_state)
 {
   include 'Connect.php';
@@ -148,42 +128,86 @@ function fetch_existing_state($p_state)
   echo '</select>';
   $con->close();
 }
-function count_register_child()
+// -----------------------------Functions for Staff Dashboard Cards--------------------------
+function today_register_child()
 {
-  require_once 'Connect.php';
-  $count=0;
+  require 'Connect.php';
+  $count = 0;
+  $sql = "SELECT COUNT('child_id') FROM child WHERE reg_date=CURDATE()";
+  $result = $con->query($sql);
+  if ($result->num_rows > 0) {
+    $row = $result->fetch_array();
+    $count = $row[0];
+
+    $con->close();
+    echo "$count";
+  }
+}
+
+function total_register_child()
+{
+  require 'Connect.php';
+  $count = 0;
   $sql = "SELECT COUNT('child_id') FROM child";
   $result = $con->query($sql);
-  if ($result->num_rows > 0)  {
+  if ($result->num_rows > 0) {
+    $row = $result->fetch_array();
+    $count = $row[0];
+
+    $con->close();
+    echo "$count";
+  }
+}
+
+function count_today_appointment()
+{
+  require 'Connect.php';
+  $count = 0;
+  $sql = "SELECT COUNT('appointment_id') FROM appointment WHERE appointment_date=CURDATE()";
+  $result = $con->query($sql);
+  if ($result->num_rows > 0) {
     $row = $result->fetch_array();
     $count = $row[0];
     $con->close();
-   echo "$count";
+    echo "$count";
   }
 }
-class message
+function count_total_appointment()
 {
-  public static function show_modal($header, $body)
-  {
-    echo '<div class="modal" id="modal">
-        <div class="modal-header">
-            <span>' . $header . '</span>
-        </div>
-        <div class="modal-body">
-            <span>' . $body . '</span>
-        </div>
-        <div class="modal-footer">
-            <button type="button" onclick="hideModal()">OK</button>
-        </div>
-    </div>
-    <script>
-        const modal = document.getElementById("modal")
-        function showModal() {
-            modal.style.display = "block";
-        }
-        function hideModal() {
-            modal.style.display = "none";
-        }
-    </script>';
+  require 'Connect.php';
+  $count = 0;
+  $sql = "SELECT COUNT('appointment_id') FROM appointment";
+  $result = $con->query($sql);
+  if ($result->num_rows > 0) {
+    $row = $result->fetch_array();
+    $count = $row[0];
+    $con->close();
+    echo "$count";
+  }
+}
+function count_today_vaccination()
+{
+  require 'Connect.php';
+  $count = 0;
+  $sql = "SELECT COUNT('v_id') FROM vaccination WHERE actual_date=CURDATE()";
+  $result = $con->query($sql);
+  if ($result->num_rows > 0) {
+    $row = $result->fetch_array();
+    $count = $row[0];
+    $con->close();
+    echo "$count";
+  }
+}
+function count_total_vaccination()
+{
+  require 'Connect.php';
+  $count = 0;
+  $sql = "SELECT COUNT('v_id') FROM vaccination";
+  $result = $con->query($sql);
+  if ($result->num_rows > 0) {
+    $row = $result->fetch_array();
+    $count = $row[0];
+    $con->close();
+    echo "$count";
   }
 }

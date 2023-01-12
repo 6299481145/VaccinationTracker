@@ -10,14 +10,12 @@
   <title>VAT 1.0</title>
 </head>
 
-
 <body>
-
   <header>
     <?php include('Includes/Header.php'); ?>
   </header>
   <div class="header">
-    <h4>Staff Registration</h4>
+    <h3>Staff Registration</h3>
   </div>
   <form action="NewStaffScript.php" method="POST">
     <div class="main-row">
@@ -35,24 +33,22 @@
       </div>
     </div>
     <div class="main-row">
-    <div class="main-column">
-      <label for="gender">Gender</label>
-      <div>
-        <select name="gender" id="gender">
-          <option value="">Select</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
+      <div class="main-column">
+        <label for="gender">Gender</label>
+        <div>
+          <select name="gender" id="gender">
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="main-column">
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="dob" id="dob">
       </div>
     </div>
-     <div class="main-column">
-      <label for="dob">Date of Birth</label>
-      <input type="date" name="dob" id="dob">
     </div>
-    </div>
-   
-    </div>
-   
     <div class="main-row">
       <div class="main-column">
         <label for="village">Village</label>
@@ -86,7 +82,6 @@
         </div>
       </div>
     </div>
-
     <div class="main-row">
       <div class="main-column">
         <label for="pincode">Pincode</label>
@@ -101,15 +96,8 @@
         <input type="text" name="email" id="email">
       </div>
     </div>
-    
     <button type="submit">Submit</button>
-
     <button type="reset">Reset</button>
-
-    <footer class="footer">
-      <?php include('Includes/Footer.html'); ?>
-    </footer>
-
 </body>
 
 </html>

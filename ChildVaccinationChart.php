@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,26 +10,22 @@
     <title>VAT 1.0</title>
 </head>
 
-
 <body>
-
-<header>
+    <header>
         <?php include('Includes/Header.php'); ?>
-</header>
-<div class="header">
-         <h4>Child Vaccination Chart</h4>
-</div>
+    </header>
+    <div class="header">
+        <h3>Child Vaccination Chart</h3>
+    </div>
 
-<table id="child">
+    <table id="child">
         <thead>
             <tr>
                 <th>Vaccine Id</th>
                 <th>Vaccine Name</th>
                 <th>Prevents</th>
-                <th>Minimum age for dose </th>   
-                <th>Units</th>                                                                                                                                                                                                                                                           </th>
-               
-                
+                <th>Age</th>
+                <th>Units</th>
             </tr>
         </thead>
         <tbody>
@@ -46,7 +43,7 @@
                         <td><?= $row['prevents'] ?></td>
                         <td><?= $row['minimum_age'] ?></td>
                         <td><?= $row['units'] ?></td>
-                        
+
                     </tr>
             <?php
                 }
@@ -57,8 +54,6 @@
     <footer class="footer">
         <?php include('Includes/Footer.html'); ?>
     </footer>
-    <script>
-		$(document).foundation();
-	</script>
 </body>
+
 </html>

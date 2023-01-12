@@ -15,8 +15,6 @@
     <header>
         <?php include('Includes/Head.html'); ?>
     </header>
-    <!-- <button> <a href="Login.php">REGISTER / SIGN IN</a></button> -->
-    <!-- <img src="Image/v.jpg" alt="" width="100%" height="100%"> -->
     <img src="Image/v.jpg" alt=" " class="image">
 </body>
 

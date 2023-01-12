@@ -1,3 +1,6 @@
+<?php
+require_once "./VaccinationCommon.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,46 +13,42 @@
     <title>VAT 1.0</title>
 </head>
 
-
 <body>
-
     <header>
         <?php include('Includes/Header.php'); ?>
     </header>
     <div class="header">
-        <h4>Today's Vaccine </h4>
+        <h3>Today's Vaccine </h3>
     </div>
 
     <table id="child">
         <thead>
             <tr>
                 <th>Appointment Id</th>
-                <th>Child Id</th>
+                <th>Child Name</th>
                 <th>Date</th>
                 <th>Time</th>
-                <th>Vaccination Date</th>
-                <th>Vaccination Time</th>
+                <th>Appointment Date</th>
+                <th>Appointment Time</th>
                 <th>Check By</th>
             </tr>
         </thead>
         <tbody>
             <?php
             include 'Connect.php';
-            // $date=$_GET['date'];
-            // echo $date;
-            $sql = "SELECT * FROM appointment WHERE vaccination_date=CURDATE()";     //here $sql is of string type 
+            $sql = "SELECT * FROM appointment WHERE appointment_date=CURDATE()";     //here $sql is of string type 
             $result = $con->query($sql);          //here $result is of type mysqli_result
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
             ?>
                     <tr>
                         <td><a href="./NewVaccination.php?aid=<?= $row['appointment_id'] ?>"><?= $row['appointment_id'] ?></a></td>
-                        <td><?= $row['child_id'] ?></td>
+                        <td> <?= vaccination_common::fetch_child_name($row['child_id']); ?></td>
                         <td><?= $row['date'] ?></td>
                         <td><?= $row['time'] ?></td>
-                        <td><?= $row['vaccination_date'] ?></td>
-                        <td><?= $row['vaccination_time'] ?></td>
-                        <td><?= $row['user_id'] ?></td>
+                        <td><?= $row['appointment_date'] ?></td>
+                        <td><?= $row['appointment_time'] ?></td>
+                        <td><?= vaccination_common::search_user($row['user_id']); ?></td>
                     </tr>
             <?php
                 }
@@ -57,13 +56,6 @@
             ?>
         </tbody>
     </table>
-
-    <footer class="footer">
-        <?php include('Includes/Footer.html'); ?>
-    </footer>
-    <script>
-		$(document).foundation();
-	</script>
 </body>
 
 </html>

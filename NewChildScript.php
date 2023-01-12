@@ -16,7 +16,7 @@ $pincode = $_POST['pincode'];
 $contact_no = $_POST['contact_no'];
 $email = $_POST['email'];
 
-$sql = "INSERT INTO child VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+$sql = "INSERT INTO child VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,CURDATE())";
 $stmt = $con->prepare($sql);
 $stmt->bind_param("sssssssssssss", $child_id, $first_name, $middle_name, $last_name, $parents_name, $gender, $dob, $village, $district, $state, $pincode, $contact_no, $email);
 $stat = $stmt->execute();
