@@ -23,7 +23,7 @@ if ($stat != false) {
         $stmt->execute();
     }
     echo "Vaccination Successful!";
-    echo "<br><a href='NewVaccination.php'>Click here</> to go back!";
+    echo "<br><a href='BookVaccine.php'>Click here</> to go back!";
 } else {
     echo $con->error;
     

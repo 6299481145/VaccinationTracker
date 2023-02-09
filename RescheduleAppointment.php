@@ -1,11 +1,11 @@
 <?php
 include_once 'Utility.php';
 require_once "./VaccinationCommon.php";
-global $child_id,$gender,$district, $state;
 
 $appointment_id = null;
 $appointment = null;
 $child = null;
+$child_id = null;
 
 if (isset($_POST['search'])) {
   $appointment_id = $_POST['appointment_id'];
@@ -70,8 +70,8 @@ $vaccine_ids = vaccination_common::fetch_vaccine_ids($next_group_id);
         <div>
           <select name="gender" id="gender" disabled>
             <option value="">Select</option>
-            <option value="M" <?php if ($child ['gender'] == 'M') echo 'Selected'; ?>>Male</option>
-            <option value="F" <?php if ($child ['gender'] == 'F') echo 'Selected'; ?>>Female</option>
+            <option value="M" <?php if ($child != null && $child['gender'] == 'M') echo 'Selected'; ?>>Male</option>
+            <option value="F" <?php if ($child != null && $child['gender'] == 'F') echo 'Selected'; ?>>Female</option>
           </select>
         </div>
       </div>
@@ -90,19 +90,19 @@ $vaccine_ids = vaccination_common::fetch_vaccine_ids($next_group_id);
         <div>
           <select name="district" id="district" disabled>
             <option value="">Select</option>
-            <option value="Muzaffarpur" <?php if ($district == 'Muzaffarpur') echo 'Selected'; ?>>Muzaffarpur</option>
-            <option value="Vaishali" <?php if ($district == 'Vaishali') echo 'Selected'; ?>>Vaishali</option>
-            <option value="Sitamarhi" <?php if ($district == 'Sitamarhi') echo 'Selected'; ?>>Sitamarhi</option>
-            <option value="Saran" <?php if ($district == 'Saran') echo 'Selected'; ?>>Saran</option>
-            <option value="Sivan" <?php if ($district == 'Sivan') echo 'Selected'; ?>>Sivan</option>
-            <option value="West champaran" <?php if ($district == 'West champaran') echo 'Selected'; ?>>West champaran</option>
+            <option value="Muzaffarpur" <?php if ($child != null && $child['district'] == 'Muzaffarpur') echo 'Selected'; ?>>Muzaffarpur</option>
+            <option value="Vaishali" <?php if ($child != null && $child['district'] == 'Vaishali') echo 'Selected'; ?>>Vaishali</option>
+            <option value="Sitamarhi" <?php if ($child != null && $child['district'] == 'Sitamarhi') echo 'Selected'; ?>>Sitamarhi</option>
+            <option value="Saran" <?php if ($child != null && $child['district'] == 'Saran') echo 'Selected'; ?>>Saran</option>
+            <option value="Sivan" <?php if ($child != null && $child['district'] == 'Sivan') echo 'Selected'; ?>>Sivan</option>
+            <option value="West champaran" <?php if ($child != null && $child['district'] == 'West champaran') echo 'Selected'; ?>>West champaran</option>
           </select>
         </div>
       </div>
       <div class="main-column">
         <label for="state">State</label>
         <div>
-          <?php fetch_existing_state($state); ?>
+          <?php fetch_existing_state($child != null && $child['state']); ?>
         </div>
       </div>
     </div>

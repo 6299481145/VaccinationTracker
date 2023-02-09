@@ -1,8 +1,18 @@
 <?php
-global $child_id, $vaccine_id;
+$child_id= null;
+$vaccine_id= null;
 
 include 'Utility.php';
 require_once "./VaccinationCommon.php";
+function vaccine_names ($appointment_id) {
+    $vaccination = vaccination_common::search_vaccination($appointment_id);
+    $vids = vaccination_common::fetch_vaccine_ids($vaccination['v_id']);
+    $vaccine_name = null;
+    foreach ($vids as $vid) {
+        $vaccine_name .= vaccination_common::fetch_vaccine_name($vid[0]) . ", ";
+    }
+    return $vaccine_name;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +47,7 @@ require_once "./VaccinationCommon.php";
         <tbody>
             <?php
             include 'Connect.php';
-            $sql = "SELECT * FROM vaccination WHERE appointment_id='A006'";     //here $sql is of string type actual_date=CURDATE()
+            $sql = "SELECT * FROM vaccination WHERE actual_date=CURDATE()";     //here $sql is of string type 
             $result = $con->query($sql);          //here $result is of type mysqli_result
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -47,8 +57,7 @@ require_once "./VaccinationCommon.php";
                         <td> <?= vaccination_common::fetch_child_name($row['child_id']); ?></td>
                         <td><?= $row['actual_date'] ?></td>
                         <td><?= $row['actual_time'] ?></td>
-                        <td> <?= vaccination_common::search_vaccineid(json_encode($row['v_id'])); ?></td>
-
+                        <td> <?= vaccine_names($row['appointment_id']); ?></td>
                     </tr>
             <?php
                 }

@@ -259,6 +259,9 @@ input[type="date"]:hover {
 #bill td {
 text-align: center;
 }
+.center{
+  text-align: center;
+}
 /* ---------------------------------- Controls for staff dashboard cards------------------------------- */
 .card {
   background-color: rgb(203, 227, 236);

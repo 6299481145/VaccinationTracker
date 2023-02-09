@@ -1,5 +1,4 @@
 <?php
-global  $gender, $district, $state;
 include 'VaccinationCommon.php';
 include 'Utility.php';
 
@@ -32,7 +31,7 @@ if (isset($_POST['search'])) {
   <form action="" method="POST">
     <div class="main-row">
       <div class="main-column">
-        <label for="staff_id">Staff Id / Contact No</label>
+        <label for="staff_id">Staff Id </label>
       </div>
     </div>
     <div>
@@ -61,8 +60,8 @@ if (isset($_POST['search'])) {
         <div>
           <select name="gender" id="gender">
             <option value="">Select</option>
-            <option value="Male" <?php if ($gender == 'Male') echo 'Selected'; ?>>Male</option>
-            <option value="Female" <?php if ($gender == 'Female') echo 'Selected'; ?>>Female</option>
+            <option value="M" <?php if ($staff != null && $staff['gender'] == 'M') echo 'Selected'; ?>>Male</option>
+            <option value="F" <?php if ($staff != null && $staff['gender'] == 'F') echo 'Selected'; ?>>Female</option>
           </select>
         </div>
       </div>
@@ -81,18 +80,19 @@ if (isset($_POST['search'])) {
         <label for="district">District</label>
         <div>
           <select name="district" id="district">
-            <option value="Muzaffarpur" <?php if ($district == 'Muzaffarpur') echo 'Selected'; ?>>Muzaffarpur</option>
-            <option value="Sitamarhi">Sitamarhi</option>
-            <option value="Saran">Saran</option>
-            <option value="Sivan">Sivan</option>
-            <option value="West champaran">West champaran</option>
+          <option value="Muzaffarpur" <?php if ($staff != null && $staff['district'] == 'Muzaffarpur') echo 'Selected'; ?>>Muzaffarpur</option>
+          <option value="Vaishali" <?php if ($staff != null && $staff['district'] == 'Vaishali') echo 'Selected'; ?>>Vaishali</option>
+          <option value="Sitamarhi" <?php if ($staff != null && $staff['district'] == 'Sitamarhi') echo 'Selected'; ?>>Sitamarhi</option>
+          <option value="Saran" <?php if ($staff != null && $staff['district'] == 'Saran') echo 'Selected'; ?>>Saran</option>
+          <option value="Sivan" <?php if ($staff != null && $staff['district'] == 'Sivan') echo 'Selected'; ?>>Sivan</option>
+          <option value="West champaran" <?php if ($staff != null && $staff['district'] == 'West champaran') echo 'Selected'; ?>>West champaran</option>
           </select>
         </div>
       </div>
       <div class="main-column">
         <label for="state">State</label>
         <div>
-          <?php fetch_existing_state($state); ?>
+          <?php fetch_existing_state($staff != null && $staff['state']); ?>
         </div>
       </div>
     </div>

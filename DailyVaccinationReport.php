@@ -1,10 +1,18 @@
 <?php
-global $child_id, $vaccine_id;
+$child_id= null;
+$vaccine_id= null;
 
 include 'Utility.php';
 require_once "./VaccinationCommon.php";
-$full_name = vaccination_common::fetch_child_name("$child_id");
-$vaccine_name = vaccination_common::fetch_vaccine_name($vaccine_id);
+function vaccine_names ($appointment_id) {
+    $vaccination = vaccination_common::search_vaccination($appointment_id);
+    $vids = vaccination_common::fetch_vaccine_ids($vaccination['v_id']);
+    $vaccine_name = null;
+    foreach ($vids as $vid) {
+        $vaccine_name .= vaccination_common::fetch_vaccine_name($vid[0]) . ", ";
+    }
+    return $vaccine_name;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,12 +53,11 @@ $vaccine_name = vaccination_common::fetch_vaccine_name($vaccine_id);
                 while ($row = $result->fetch_assoc()) {
             ?>
                     <tr>
-
                         <td><?= $row['child_id'] ?></td>
                         <td> <?= vaccination_common::fetch_child_name($row['child_id']);?></td>
                         <td><?= $row['actual_date'] ?></td>
                         <td><?= $row['actual_time'] ?></td>
-                        <td> <?php echo "$vaccine_name" ?></td>
+                        <td> <?= vaccine_names($row['appointment_id']); ?></td>
                     </tr>
             <?php
                 }

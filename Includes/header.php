@@ -33,7 +33,7 @@ if (!isset($_SESSION['username'])) {
           </button>
           <div class="dropdown-content">
             <a href="NewChild.php">Register Child</a>
-            <a href="ex.php">Edit Child Record</a>
+            <a href="EditChild.php">Edit Child Record</a>
           </div>
         </div>
         <div class="dropdown">

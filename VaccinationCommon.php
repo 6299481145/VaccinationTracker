@@ -52,6 +52,8 @@ class vaccination_common
             return -1;
         }
     }
+
+    
     static function fetch_vaccine_price($vaccine_id)
     {
         $conn = new mysqli('localhost', 'neha', 'Neha@629', 'vaccination_tracker');

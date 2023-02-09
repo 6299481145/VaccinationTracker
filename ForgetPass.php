@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
   <div class="container">
     <div class="wrapper">
       <div class="title"><span>Change Password</span></div>
@@ -24,14 +23,9 @@
           <i class="fa fa-lock"></i>
           <input type="password" placeholder="Password" name="password" required>
         </div>
-        <!-- <div class="row">
-            <i class="fa fa-lock"></i>
-            <input type="password" placeholder="Re-type Password" name="password" required>
-          </div> -->
         <div class="row button">
           <input type="submit" name="submit" value="Reset Password">
         </div>
-      
       </form>
     </div>
   </div>

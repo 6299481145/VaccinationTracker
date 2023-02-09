@@ -3,7 +3,6 @@ include 'Connect.php';
 
 $email=$_POST['email'];
 $password = $_POST['password'];
-
     $sql = "UPDATE registration SET password='$password' WHERE email='$email'";
     if ($con->query($sql) == true) {
         echo "Password reset successfully!";
